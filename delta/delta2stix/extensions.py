@@ -1,6 +1,11 @@
 import uuid
 import stix2
-import
+from delta.delta2stix.common import delta_identity, delta_namespace, schema_base
+
+
+# Variables
+delta = "delta"
+
 
 
 # delta SMO
