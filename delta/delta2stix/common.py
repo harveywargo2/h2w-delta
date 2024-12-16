@@ -12,3 +12,6 @@ delta_identity = "identity--" + str(uuid.uuid5(delta_namespace, f"{identity_obje
 
 schema_base = "https://raw.githubusercontent.com/harveywargo2/h2w-dtech/refs/heads/main/dtech/delta/schemas/"
 
+
+sco_namespace = uuid.UUID("00abedb4-aa42-466c-9c01-fed23315a9b7")
+default_timestamp = "2018-01-01T00:00:00.000Z"
