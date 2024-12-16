@@ -1,0 +1,74 @@
+{
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-dtech/refs/heads/main/dtech/delta/schemas/sdo/delta.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "delta",
+  "description": "This extension creates a new SDO used to represent x-delta objects",
+  "type": "object",
+  "allof": [
+    {
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/refs/heads/master/schemas/common/core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object, which MUST be the literal 'delta'.",
+          "enum": [
+            "delta"
+          ]
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^delta--"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name used to identify the delta."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description about the x-delta-pattern"
+        },
+        "delta": {
+          "type": "string",
+          "description": "The identifier of the delta-pattern"
+        },
+        "delta_category": {
+          "type": "string",
+          "description": "Category of the delta",
+          "enum": [
+            "single_line_match"
+          ]
+        },
+        "delta_meta": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "enum": [
+                    "new-sdo"
+                  ]
+                }
+              },
+              "required": ["new-sdo"]
+            },
+            "required": ["extension-definition--"]
+
+          }
+        }
+      }
+    }
+  ],
+  "required": [
+    "delta",
+    "delta-class"
+  ]
+}
