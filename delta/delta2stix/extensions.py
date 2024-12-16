@@ -7,7 +7,6 @@ from delta.delta2stix.common import delta_identity, delta_namespace, schema_base
 delta = "delta"
 
 
-
 # delta SMO
 # extension-definition--f637f617-afeb-5b8c-bacd-537aebeb9154
 
