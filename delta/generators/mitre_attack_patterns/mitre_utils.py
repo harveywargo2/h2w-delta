@@ -13,7 +13,7 @@ def get_mitre_attack_base_bundle():
 
 
 def update_base_bundle_dump():
-    with open('bundle__mitre_attack_base.json', 'w') as json_file:
+    with open('bundle__mitre_enterprise_attack_base.json', 'w') as json_file:
         json.dump(get_mitre_attack_base_bundle(), json_file)
 
     return
@@ -21,10 +21,10 @@ def update_base_bundle_dump():
 update_base_bundle_dump()
 
 
-def get_mitre_attack_patterns_index():
+def list_mitre_enterprise_attack_patterns_objects():
     ap_list = []
 
-    with  open('bundle__mitre_attack_base.json', 'r') as file:
+    with  open('bundle__mitre_enterprise_attack_base.json', 'r') as file:
         data = json.load(file)
 
     ap_data = data['objects']
@@ -35,4 +35,4 @@ def get_mitre_attack_patterns_index():
 
     return ap_list
 
-print(get_mitre_attack_patterns_index())
+
