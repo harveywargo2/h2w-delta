@@ -45,7 +45,7 @@ comsvcs_references = [
 comsvcs_iocs_df = pd.read_csv("comsvcs_p0000.csv")
 
 
-# comsvcs_p0000 stix objects
+# comsvcs stix objects
 delta__comsvcs_p0001 = Delta(
     delta='comsvcs_p0001',
     delta_category="single-line-match",
@@ -123,6 +123,7 @@ indicator__comsvcs_p0003 = stix2.Indicator(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
+
 def sco_comsvcs_p0000():
     sco_list = []
 
@@ -137,21 +138,21 @@ def sco_comsvcs_p0000():
 
     return sco_list
 
+
 def bundle__comsvcs_p0000():
-    bundle__comsvcs_p0000 = stix2.Bundle(objects=[delta__comsvcs_p0001,
-                                                  delta__comsvcs_p0002,
-                                                  delta__comsvcs_p0003,
-                                                  indicator__comsvcs_p0001,
-                                                  indicator__comsvcs_p0002,
-                                                  indicator__comsvcs_p0003],
-                                         allow_custom=True)
+
+    bundle = stix2.Bundle(
+        objects=[delta__comsvcs_p0001, delta__comsvcs_p0002, delta__comsvcs_p0003,indicator__comsvcs_p0001,
+                 indicator__comsvcs_p0002, indicator__comsvcs_p0003],
+        allow_custom=True
+    )
 
     sco_list = sco_comsvcs_p0000()
 
     for item in sco_list:
-        bundle__comsvcs_p0000.objects.append(item)
+        bundle.objects.append(item)
 
-    return bundle__comsvcs_p0000
+    return bundle
 
 
 bundle__comsvcs_p0000()
