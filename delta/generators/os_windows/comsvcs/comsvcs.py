@@ -42,6 +42,7 @@ comsvcs_references = [
             "url": "https://github.com/login-securite/lsassy/blob/14d8f8ae596ecf22b449bfe919829173b8a07635/lsassy/dumpmethod/comsvcs.py"
         }
     ]
+comsvcs_iocs_df = pd.read_csv("comsvcs_p0000.csv")
 
 
 # comsvcs_p0000 stix objects
@@ -59,7 +60,6 @@ delta__comsvcs_p0001 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-
 indicator__comsvcs_p0001 = stix2.Indicator(
     id='indicator--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0001')),
     created_by_ref=d2s.delta_identity,
@@ -70,7 +70,6 @@ indicator__comsvcs_p0001 = stix2.Indicator(
     valid_from='2018-01-01T00:00:00.000Z',
     object_marking_refs=[stix2.TLP_WHITE]
 )
-
 
 # comsvcs-p0002
 delta__comsvcs_p0002 = Delta(
@@ -87,7 +86,6 @@ delta__comsvcs_p0002 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-
 indicator__comsvcs_p0002 = stix2.Indicator(
     id='indicator--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0002')),
     created_by_ref=d2s.delta_identity,
@@ -98,7 +96,6 @@ indicator__comsvcs_p0002 = stix2.Indicator(
     valid_from='2018-01-01T00:00:00.000Z',
     object_marking_refs=[stix2.TLP_WHITE]
 )
-
 
 # comsvcs-p0003
 delta__comsvcs_p0003 = Delta(
@@ -115,7 +112,6 @@ delta__comsvcs_p0003 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-
 indicator__comsvcs_p0003 = stix2.Indicator(
     id='indicator--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0003')),
     created_by_ref=d2s.delta_identity,
@@ -128,11 +124,19 @@ indicator__comsvcs_p0003 = stix2.Indicator(
 )
 
 
+def sco_comsvcs_p0000():
+    sco_list = []
+
+    for index, row in comsvcs_iocs_df.iterrows():
+        sco_cmdline = row['command_line']
+        sco_json = stix2.Process(
+            id='process--' + str(uuid.uuid5(delta_namespace, sco_cmdline)),
+            command_line=sco_cmdline
+        )
+
+        sco_list.append(sco_json)
+
+    return sco_list
 
 
-print(delta__comsvcs_p0001)
-print(delta__comsvcs_p0002)
-print(delta__comsvcs_p0003)
-print(indicator__comsvcs_p0001)
-print(indicator__comsvcs_p0002)
-print(indicator__comsvcs_p0003)
+
