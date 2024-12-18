@@ -4,13 +4,14 @@ import delta.delta2stix as d2s
 import delta.generators.mitre_attack_patterns as map
 import uuid
 import pandas as pd
+import os
 
 
 # Common Variables
 delta_namespace = d2s.delta_namespace
 _delta = "delta--"
 _time = d2s.default_timestamp
-
+comsvcs_dir = os.path.abspath(__file__)
 
 
 # SDO
@@ -128,9 +129,9 @@ attack_pattern__mitre_t1003 = map.attack_pattern_t1003001()
 
 # SCO
 ## Data Import
-sco_comsvcs_p0001_df = pd.read_csv("comsvcs_p0001.csv")
-sco_comsvcs_p0002_df = pd.read_csv("comsvcs_p0002.csv")
-sco_comsvcs_p0000_df = pd.read_csv("comsvcs_p0000.csv")
+sco_comsvcs_p0001_df = pd.read_csv(os.path.join(os.path.dirname(comsvcs_dir), "comsvcs_p0001.csv"))
+sco_comsvcs_p0002_df = pd.read_csv(os.path.join(os.path.dirname(comsvcs_dir), "comsvcs_p0002.csv"))
+sco_comsvcs_p0000_df = pd.read_csv(os.path.join(os.path.dirname(comsvcs_dir), "comsvcs_p0000.csv"))
 
 ## Common Var
 sco_namespace = d2s.sco_namespace

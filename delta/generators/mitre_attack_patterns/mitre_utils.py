@@ -1,8 +1,10 @@
 import requests
 import json
+import os
 
 
 url = 'https://raw.githubusercontent.com/mitre-attack/attack-stix-data/refs/heads/master/enterprise-attack/enterprise-attack.json'
+mitre_dir = os.path.abspath(__file__)
 
 def get_mitre_attack_base_bundle():
 
@@ -22,7 +24,8 @@ def update_base_bundle_dump():
 def list_mitre_enterprise_attack_patterns_objects():
     ap_list = []
 
-    data = get_mitre_attack_base_bundle()
+    with open(os.path.join(os.path.dirname(mitre_dir), 'bundle__mitre_enterprise_attack_base.json'), 'r') as file:
+        data = json.load(file)
 
     ap_data = data['objects']
 
