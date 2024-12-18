@@ -29,6 +29,18 @@
           "type": "string",
           "description": "A description about the x-delta-pattern"
         },
+        "pattern": {
+          "type": "string",
+          "description": "The detection pattern for this indicator."
+        },
+        "pattern_type" : {
+          "type" : "string",
+          "description": "The type of pattern used in this indicator."
+        },
+        "pattern_version" : {
+          "type": "string",
+          "description": "The version of the pattern that is used."
+        },
         "delta": {
           "type": "string",
           "description": "The identifier of the delta-pattern"

@@ -18,14 +18,11 @@ def update_base_bundle_dump():
 
     return
 
-update_base_bundle_dump()
-
 
 def list_mitre_enterprise_attack_patterns_objects():
     ap_list = []
 
-    with  open('bundle__mitre_enterprise_attack_base.json', 'r') as file:
-        data = json.load(file)
+    data = get_mitre_attack_base_bundle()
 
     ap_data = data['objects']
 
@@ -34,5 +31,4 @@ def list_mitre_enterprise_attack_patterns_objects():
             ap_list.append(item)
 
     return ap_list
-
 
