@@ -48,6 +48,7 @@ comsvcs_references = [
     ]
 
 
+## Deltas
 delta__comsvcs_p0001 = Delta(
     delta="comsvcs_p0001",
     delta_category="single-line-match",
@@ -65,18 +66,6 @@ delta__comsvcs_p0001 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-indicator__comsvcs_p0001 = stix2.Indicator(
-    id="indicator--" + str(uuid.uuid5(delta_namespace, "comsvcs_p0001")),
-    created_by_ref=d2s.delta_identity,
-    name="Comsvcs.dll Created Dump File of Process with MiniDump",
-    pattern="[process:command_line MATCHES 'comsvcs'] AND [process:command_line MATCHES 'MiniDump']",
-    pattern_type="stix",
-    pattern_version="2.1",
-    valid_from="2018-01-01T00:00:00.000Z",
-    object_marking_refs=[stix2.TLP_WHITE]
-)
-
-# comsvcs-p0002
 delta__comsvcs_p0002 = Delta(
     delta="comsvcs_p0002",
     delta_category="single-line-match",
@@ -105,7 +94,6 @@ indicator__comsvcs_p0002 = stix2.Indicator(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-# comsvcs-p0003
 delta__comsvcs_p0003 = Delta(
     delta="comsvcs_p0003",
     delta_category="single-line-match",
@@ -123,6 +111,36 @@ delta__comsvcs_p0003 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
+
+## Indicators
+indicator__comsvcs_p0001 = stix2.Indicator(
+    id="indicator--" + str(uuid.uuid5(delta_namespace, "comsvcs_p0001")),
+    created_by_ref=d2s.delta_identity,
+    name="Comsvcs.dll Created Dump File of Process with MiniDump",
+    pattern="[process:command_line MATCHES 'comsvcs'] AND [process:command_line MATCHES 'MiniDump']",
+    pattern_type="stix",
+    pattern_version="2.1",
+    valid_from="2018-01-01T00:00:00.000Z",
+    object_marking_refs=[stix2.TLP_WHITE]
+)
+
+delta__comsvcs_p0002 = Delta(
+    delta="comsvcs_p0002",
+    delta_category="single-line-match",
+    delta_meta=[],
+    id=_delta + str(uuid.uuid5(delta_namespace, "comsvcs_p0002")),
+    created_by_ref=d2s.delta_identity,
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
+    name="Comsvcs.dll Called MiniDumpW Function to Dump Process",
+    description="Comsvcs.dll Created Dump File with MiniDumpW (#24) Function of a Process",
+    pattern="[process:command_line MATCHES 'comsvcs'] AND ([process:command_line MATCHES '#24'] OR [process:command_line MATCHES '-24'])",
+    pattern_type="stix",
+    pattern_version="2.1",
+    external_references=comsvcs_references,
+    object_marking_refs=[stix2.TLP_WHITE]
+)
+
 ## Mitre Attack Pattern
 attack_pattern__mitre_t1003 = map.attack_pattern_t1003001()
 
@@ -132,6 +150,7 @@ attack_pattern__mitre_t1003 = map.attack_pattern_t1003001()
 sco_comsvcs_p0001_df = pd.read_csv(os.path.join(os.path.dirname(comsvcs_dir), "comsvcs_p0001.csv"))
 sco_comsvcs_p0002_df = pd.read_csv(os.path.join(os.path.dirname(comsvcs_dir), "comsvcs_p0002.csv"))
 sco_comsvcs_p0000_df = pd.read_csv(os.path.join(os.path.dirname(comsvcs_dir), "comsvcs_p0000.csv"))
+
 
 ## Common Var
 sco_namespace = d2s.sco_namespace
@@ -189,13 +208,15 @@ def sro_comsvcs():
     sco_comsvcs_p0001_list = sco_comsvcs_p0001()
 
     for item in sco_comsvcs_p0001_list:
-        sco = stix2.Relationship(source_ref=item.id, target_ref=indicator__comsvcs_p0001.id, relationship_type="indicates")
+        sco = stix2.Relationship(source_ref=item.id, target_ref=indicator__comsvcs_p0001.id,
+                                 relationship_type="indicates")
         sro_list.append(sco)
 
     sco_comsvcs_p0002_list = sco_comsvcs_p0002()
 
     for item in sco_comsvcs_p0002_list:
-        sco = stix2.Relationship(source_ref=item.id, target_ref=indicator__comsvcs_p0002.id, relationship_type="indicates")
+        sco = stix2.Relationship(source_ref=item.id, target_ref=indicator__comsvcs_p0002.id,
+                                 relationship_type="indicates")
         sro_list.append(sco)
 
     sro1 = stix2.Relationship(source_ref=indicator__comsvcs_p0001, target_ref=delta__comsvcs_p0001, relationship_type="indicates")
@@ -208,7 +229,6 @@ def sro_comsvcs():
     sro8 = stix2.Relationship(source_ref=delta__comsvcs_p0002, target_ref=attack_pattern__mitre_t1003['id'], relationship_type="relates-to")
     sro9 = stix2.Relationship(source_ref=delta__comsvcs_p0003, target_ref=attack_pattern__mitre_t1003['id'], relationship_type="relates-to")
 
-
     sro_list.extend([sro1, sro2, sro3, sro4, sro5, sro6, sro7, sro8, sro9])
 
 
@@ -220,8 +240,8 @@ def bundle__comsvcs_p0000():
 
     bundle = stix2.Bundle(
         objects=[
-            delta__comsvcs_p0001, delta__comsvcs_p0002, delta__comsvcs_p0003, indicator__comsvcs_p0001,
-            indicator__comsvcs_p0002, attack_pattern__mitre_t1003
+            delta__comsvcs_p0001, delta__comsvcs_p0002, delta__comsvcs_p0003,
+            indicator__comsvcs_p0001, indicator__comsvcs_p0002, attack_pattern__mitre_t1003
         ],
         allow_custom=True,
         id='bundle--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0000'))
@@ -243,4 +263,5 @@ def bundle__comsvcs_p0000():
         bundle.objects.append(item)
 
     return bundle
+
 

