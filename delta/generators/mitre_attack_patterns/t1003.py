@@ -1,8 +1,8 @@
 import json
-import mitre_utils
+import delta.generators.mitre_attack_patterns as map
 
 
-ap_list = mitre_utils.list_mitre_enterprise_attack_patterns_objects()
+ap_list = map.list_mitre_enterprise_attack_patterns_objects()
 
 
 def list_t1003_enterprise_attack_patterns():
@@ -86,5 +86,3 @@ def attack_pattern_t1003008():
 
     return output
 
-
-print(attack_pattern_t1003001())

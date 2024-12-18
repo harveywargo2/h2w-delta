@@ -1,9 +1,9 @@
 import stix2
 from delta.delta2stix import Delta
 import delta.delta2stix as d2s
+import delta.generators.mitre_attack_patterns as map
 import uuid
 import pandas as pd
-
 
 
 # Common Variables
@@ -55,8 +55,11 @@ delta__comsvcs_p0001 = Delta(
     created_by_ref=d2s.delta_identity,
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
-    name="Comsvcs.dll Used to Create Dump File of Process",
-    description="Comsvcs.dll lolbin used to create IOC of process dumping commonly used with dumping LSASS.",
+    name="Comsvcs.dll Created Dump File of Process with MiniDump",
+    description="Comsvcs.dll lolbin used to create IOC of process dumping with MiniDump on Process Command Line",
+    pattern="[process:command_line MATCHES 'comsvcs'] AND [process:command_line MATCHES 'MiniDump']",
+    pattern_type='stix',
+    pattern_version='2.1',
     external_references=comsvcs_references,
     object_marking_refs=[stix2.TLP_WHITE]
 )
@@ -64,7 +67,7 @@ delta__comsvcs_p0001 = Delta(
 indicator__comsvcs_p0001 = stix2.Indicator(
     id='indicator--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0001')),
     created_by_ref=d2s.delta_identity,
-    name="Comsvcs.dll Used to Dump LSASS",
+    name="Comsvcs.dll Created Dump File of Process with MiniDump",
     pattern="[process:command_line MATCHES 'comsvcs'] AND [process:command_line MATCHES 'MiniDump']",
     pattern_type='stix',
     pattern_version='2.1',
@@ -82,7 +85,10 @@ delta__comsvcs_p0002 = Delta(
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
     name="Comsvcs.dll Called MiniDumpW Function to Dump Process",
-    description="Comsvcs.dll lolbin used to create IOC of process dumping commonly used with dumping LSASS.",
+    description="Comsvcs.dll Created Dump File with MiniDumpW (#24) Function of a Process",
+    pattern="[process:command_line MATCHES 'comsvcs'] AND ([process:command_line MATCHES '#24'] OR [process:command_line MATCHES '-24'])",
+    pattern_type='stix',
+    pattern_version='2.1',
     external_references=comsvcs_references,
     object_marking_refs=[stix2.TLP_WHITE]
 )
@@ -90,7 +96,7 @@ delta__comsvcs_p0002 = Delta(
 indicator__comsvcs_p0002 = stix2.Indicator(
     id='indicator--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0002')),
     created_by_ref=d2s.delta_identity,
-    name="Comsvcs.dll Used to Dump a process",
+    name="Comsvcs.dll Called MiniDumpW Function to Dump Process",
     pattern="[process:command_line MATCHES 'comsvcs'] AND ([process:command_line MATCHES '#24'] OR [process:command_line MATCHES '-24'])",
     pattern_type='stix',
     pattern_version='2.1',
@@ -108,7 +114,10 @@ delta__comsvcs_p0003 = Delta(
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
     name="Comsvcs.dll Created a File",
-    description="Comsvcs.dll lolbin used to create IOC of process dumping commonly used with dumping LSASS.",
+    description="Comsvcs.dll creating a file can indicate a process memory dump",
+    pattern="([image:path MATCHES 'comsvcs'] OR [parent_process:commandline MATCHES 'comsvcs'] AND [file:action MATCHES 'create'])",
+    pattern_type='stix',
+    pattern_version='2.1',
     external_references=comsvcs_references,
     object_marking_refs=[stix2.TLP_WHITE]
 )
@@ -116,7 +125,7 @@ delta__comsvcs_p0003 = Delta(
 indicator__comsvcs_p0003 = stix2.Indicator(
     id='indicator--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0003')),
     created_by_ref=d2s.delta_identity,
-    name="Comsvcs.dll Used to Dump a process",
+    name="Comsvcs.dll Created of File",
     pattern="([image:path MATCHES 'comsvcs'] OR [parent_process:commandline MATCHES 'comsvcs'] AND [file:action MATCHES 'create'])",
     pattern_type='stix',
     pattern_version='2.1',
@@ -140,13 +149,13 @@ def sco_comsvcs_p0000():
 
     return sco_list
 
-
+attack_pattern__comsvcs_p0000 = map.attack_pattern_t1003001()
 
 def bundle__comsvcs_p0000():
 
     bundle = stix2.Bundle(
         objects=[delta__comsvcs_p0001, delta__comsvcs_p0002, delta__comsvcs_p0003,indicator__comsvcs_p0001,
-                 indicator__comsvcs_p0002, indicator__comsvcs_p0003],
+                 indicator__comsvcs_p0002, indicator__comsvcs_p0003, attack_pattern__comsvcs_p0000],
         allow_custom=True,
         id='bundle--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0000'))
     )
