@@ -5,6 +5,7 @@ import uuid
 import pandas as pd
 
 
+
 # Common Variables
 delta_namespace = d2s.delta_namespace
 sco_namespace = d2s.sco_namespace
@@ -123,6 +124,7 @@ indicator__comsvcs_p0003 = stix2.Indicator(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
+# Mitre Attack Pattern
 
 def sco_comsvcs_p0000():
     sco_list = []
@@ -139,12 +141,14 @@ def sco_comsvcs_p0000():
     return sco_list
 
 
+
 def bundle__comsvcs_p0000():
 
     bundle = stix2.Bundle(
         objects=[delta__comsvcs_p0001, delta__comsvcs_p0002, delta__comsvcs_p0003,indicator__comsvcs_p0001,
                  indicator__comsvcs_p0002, indicator__comsvcs_p0003],
-        allow_custom=True
+        allow_custom=True,
+        id='bundle--' + str(uuid.uuid5(delta_namespace, 'comsvcs_p0000'))
     )
 
     sco_list = sco_comsvcs_p0000()

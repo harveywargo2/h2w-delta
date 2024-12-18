@@ -1,1 +1,1 @@
-from .comsvcs.comsvcs import *
+from delta.generators.os_windows.comsvcs.comsvcs import *
