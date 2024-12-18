@@ -1,10 +1,8 @@
 from delta.generators.os_windows.comsvcs.comsvcs import (bundle__comsvcs_p0000)
-import json
-
 
 
 bundle__comsvcs = bundle__comsvcs_p0000()
-print(bundle__comsvcs)
+bundle_comsvcs_json =bundle__comsvcs.serialize()
 
 with open('bundle-comsvcs-delta.json', 'w') as file:
-    json.dump(bundle__comsvcs.serialize(), file)
+    file.write(bundle_comsvcs_json)
