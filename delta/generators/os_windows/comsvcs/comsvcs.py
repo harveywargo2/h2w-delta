@@ -221,7 +221,7 @@ def sro_comsvcs():
 
 
 # SBO
-def bundle__comsvcs_p0000():
+def bundle__comsvcs_stix2_delta_objs():
 
     bundle = stix2.Bundle(
         objects=[
