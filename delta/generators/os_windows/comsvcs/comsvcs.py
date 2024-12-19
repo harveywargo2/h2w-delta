@@ -83,16 +83,7 @@ delta__comsvcs_p0002 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-indicator__comsvcs_p0002 = stix2.Indicator(
-    id="indicator--" + str(uuid.uuid5(delta_namespace, "comsvcs_p0002")),
-    created_by_ref=d2s.delta_identity,
-    name="Comsvcs.dll Called MiniDumpW Function to Dump Process",
-    pattern="[process:command_line MATCHES 'comsvcs'] AND ([process:command_line MATCHES '#24'] OR [process:command_line MATCHES '-24'])",
-    pattern_type="stix",
-    pattern_version="2.1",
-    valid_from="2018-01-01T00:00:00.000Z",
-    object_marking_refs=[stix2.TLP_WHITE]
-)
+
 
 delta__comsvcs_p0003 = Delta(
     delta="comsvcs_p0003",
@@ -124,20 +115,14 @@ indicator__comsvcs_p0001 = stix2.Indicator(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-delta__comsvcs_p0002 = Delta(
-    delta="comsvcs_p0002",
-    delta_category="single-line-match",
-    delta_meta=[],
-    id=_delta + str(uuid.uuid5(delta_namespace, "comsvcs_p0002")),
+indicator__comsvcs_p0002 = stix2.Indicator(
+    id="indicator--" + str(uuid.uuid5(delta_namespace, "comsvcs_p0002")),
     created_by_ref=d2s.delta_identity,
-    created="2025-01-01T00:00:00.000Z",
-    modified="2025-01-01T00:00:00.000Z",
     name="Comsvcs.dll Called MiniDumpW Function to Dump Process",
-    description="Comsvcs.dll Created Dump File with MiniDumpW (#24) Function of a Process",
     pattern="[process:command_line MATCHES 'comsvcs'] AND ([process:command_line MATCHES '#24'] OR [process:command_line MATCHES '-24'])",
     pattern_type="stix",
     pattern_version="2.1",
-    external_references=comsvcs_references,
+    valid_from="2018-01-01T00:00:00.000Z",
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
