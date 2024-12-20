@@ -1,5 +1,4 @@
 import stix2
-from delta.delta2stix import Delta
 import delta.delta2stix as d2s
 import delta.generators.mitre_attack_patterns as map
 import uuid
@@ -49,7 +48,7 @@ comsvcs_references = [
 
 
 ## Deltas
-delta__comsvcs_p0001 = Delta(
+delta__comsvcs_p0001 = d2s.Delta(
     delta="comsvcs_p0001",
     delta_category="single-line-match",
     delta_meta=[],
@@ -66,7 +65,7 @@ delta__comsvcs_p0001 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-delta__comsvcs_p0002 = Delta(
+delta__comsvcs_p0002 = d2s.Delta(
     delta="comsvcs_p0002",
     delta_category="single-line-match",
     delta_meta=[],
@@ -83,9 +82,7 @@ delta__comsvcs_p0002 = Delta(
     object_marking_refs=[stix2.TLP_WHITE]
 )
 
-
-
-delta__comsvcs_p0003 = Delta(
+delta__comsvcs_p0003 = d2s.Delta(
     delta="comsvcs_p0003",
     delta_category="single-line-match",
     delta_meta=[],
@@ -111,6 +108,8 @@ indicator__comsvcs_p0001 = stix2.Indicator(
     pattern="[process:command_line MATCHES 'comsvcs'] AND [process:command_line MATCHES 'MiniDump']",
     pattern_type="stix",
     pattern_version="2.1",
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
     valid_from="2018-01-01T00:00:00.000Z",
     object_marking_refs=[stix2.TLP_WHITE]
 )
@@ -122,6 +121,8 @@ indicator__comsvcs_p0002 = stix2.Indicator(
     pattern="[process:command_line MATCHES 'comsvcs'] AND ([process:command_line MATCHES '#24'] OR [process:command_line MATCHES '-24'])",
     pattern_type="stix",
     pattern_version="2.1",
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
     valid_from="2018-01-01T00:00:00.000Z",
     object_marking_refs=[stix2.TLP_WHITE]
 )

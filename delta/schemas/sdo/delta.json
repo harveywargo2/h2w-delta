@@ -2,7 +2,7 @@
   "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-dtech/refs/heads/main/dtech/delta/schemas/sdo/delta.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "delta",
-  "description": "This extension creates a new SDO used to represent x-delta objects",
+  "description": "This extension creates a new SDO used to represent delta objects",
   "type": "object",
   "allof": [
     {
@@ -81,6 +81,6 @@
   ],
   "required": [
     "delta",
-    "delta-class"
+    "delta-category"
   ]
 }
