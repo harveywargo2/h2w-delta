@@ -1,0 +1,46 @@
+import uuid
+from stix2 import (CustomObject, utils, ExtensionDefinition, v21)
+from stix2.properties import (
+    StringProperty, ListProperty, TypeProperty, IDProperty,
+    ReferenceProperty, TimestampProperty, DictionaryProperty
+)
+from delta2stix.common import (delta_namespace, delta_identity, schema_base)
+
+
+# x-delta-evidence custom stix 2.1 SDO
+_type = 'x-delta-evidence'
+
+
+# extension-definition--9ca6c17f-5682-513e-a5e9-3e6df5f9fd00
+x_delta_evidence_ExtensionDefinitionSMO = ExtensionDefinition(
+    id="extension-definition--" + str(uuid.uuid5(delta_namespace, _type)),
+    created_by_ref=delta_identity,
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
+    name="x-evidence",
+    description="""
+    This extension creates a custom stix 2.1 SDO that is used to represent x-delta-evidence objects.
+    One to many object that sits between Indicators & Observables and x-delta-pid objects.
+    """,
+    schema=schema_base+"sdo/x-delta-evidence.json",
+    version="1.0",
+    extension_types=["new-sdo"]
+)
+
+
+@CustomObject(_type, [
+    ('type', TypeProperty(_type, spec_version='2.1')),
+    ('spec_version', StringProperty(fixed='2.1')),
+    ('id', IDProperty(_type, spec_version='2.1')),
+    ('created_by_ref', ReferenceProperty(valid_types='identity', spec_version='2.1')),
+    ('created', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
+    ('modified', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
+    ('object_marking_refs', ListProperty(ReferenceProperty(valid_types='marking-definition', spec_version='2.1'))),
+    ('external_references', ListProperty(v21.ExternalReference)),
+    ('name', StringProperty()),
+    ('x_delta_evidence_id', StringProperty(required=True)),
+    ('x_evidence_info', DictionaryProperty())
+], extension_name=x_delta_evidence_ExtensionDefinitionSMO.id)
+class XDeltaEvidence(object):
+    pass
+

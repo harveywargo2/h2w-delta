@@ -1,0 +1,65 @@
+{
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta2stix/refs/heads/main/schemas/sdo/x-simulation.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "x-detection",
+  "description": "This extension creates a custom stix 2.1 SDO to represent x-simulation objects",
+  "type": "object",
+  "allof": [
+    {
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/refs/heads/master/schemas/common/core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object. which MUST be the literal 'x-simulation'.",
+          "enum": ["x-simulation"]
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^x-simulation--"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name used to identify the object."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description that provides the recipient with context about this object potentially including its purpose and its key characteristics."
+        },
+        "x_simulation_id": {
+          "type": "string",
+          "description": "The unique identifier of the simulation",
+        },
+        "x_simulation_producer": {
+          "type": "string",
+          "description": "The producer of the simulation",
+        },
+        "x_simulation_info": {
+          "type": "object",
+          "description": "Dictionary of key/value pairs"
+        },
+        "x_simulation_config": {
+          "type": "object",
+          "description": "Dictionary of key/value pairs"
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--69a6aff6-ec33-520f-868e-f951c645faf2": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "enum": ["new-sdo"]
+                }
+              },
+              "required": ["new-sdo"]
+            },
+            "required": ["extension-definition--69a6aff6-ec33-520f-868e-f951c645faf2"]
+          }
+        }
+      }
+    }
+  ],
+  "required": ["x-delta-data", "extensions"]
+}

@@ -1,0 +1,77 @@
+{
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta2stix/refs/heads/main/schemas/sdo/x-detection.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "x-detection",
+  "description": "This extension creates a custom stix 2.1 SDO to represent x-detection objects",
+  "type": "object",
+  "allof": [
+    {
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/refs/heads/master/schemas/common/core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object. which MUST be the literal 'x-detection'.",
+          "enum": ["x-detection"]
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^x-detection--"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name used to identify the object."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description that provides the recipient with context about this object potentially including its purpose and its key characteristics."
+        },
+        "valid_from": {
+          "$ref": "../common/timestamp.json",
+          "description": "The time from which this indicator should be considered valuable intelligence."
+        },
+        "valid_until": {
+          "$ref": "../common/timestamp.json",
+          "description": "The time at which this indicator should no longer be considered valuable intelligence."
+        },
+        "x_detection_pid": {
+          "type": "string",
+          "description": "The unique identifier of the detection",
+        },
+        "x_detection_producer": {
+          "type": "string",
+          "description": "The producer of the detection"
+        },
+        "x_detection_category": {
+          "type": "string",
+          "description": "The category of the detection"
+        },
+        "x_detection_info": {
+          "type": "object",
+          "description": "Dictionary of key/value pairs"
+        },
+        "x_detection_config": {
+          "type": "object",
+          "description": "Config Object of Detection"
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--567d6e9f-e8a5-554c-a134-f94ccaff5fd6": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "enum": ["new-sdo"]
+                }
+              },
+              "required": ["new-sdo"]
+            },
+            "required": ["extension-definition--567d6e9f-e8a5-554c-a134-f94ccaff5fd6"]
+          }
+        }
+      }
+    }
+  ],
+  "required": ["x-detection", "extensions"]
+}

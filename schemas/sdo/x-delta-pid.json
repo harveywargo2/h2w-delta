@@ -1,0 +1,75 @@
+{
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta2stix/refs/heads/main/schemas/sdo/x-delta-pid.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "x-delta-pid",
+  "description": "This extension creates a custom SDO to represent x-delta-pid objects",
+  "type": "object",
+  "allof": [
+    {
+      "$ref": "https://raw.githubusercontent.com/oasis-open/cti-stix2-json-schemas/refs/heads/master/schemas/common/core.json"
+    },
+    {
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "The type of this object. which MUST be the literal 'x-delta-pid'.",
+          "enum": ["x-delta-pid"]
+        },
+        "id": {
+          "title": "id",
+          "pattern": "^x-delta-pid--"
+        },
+        "name": {
+          "type": "string",
+          "description": "The name used to identify the object."
+        },
+        "description": {
+          "type": "string",
+          "description": "A description that provides the recipient with context about this object potentially including its purpose and its key characteristics."
+        },
+        "valid_from": {
+          "$ref": "../common/timestamp.json",
+          "description": "The time from which this indicator should be considered valuable intelligence."
+        },
+        "valid_until": {
+          "$ref": "../common/timestamp.json",
+          "description": "The time at which this indicator should no longer be considered valuable intelligence."
+        },
+        "x_delta_pid": {
+          "type": "string",
+          "description": "The identifier of the x-delta-pid",
+          "pattern": "^[a-z_]{,24}-p[0-9]{4}"
+        },
+        "x_delta_category": {
+          "type": "string",
+          "description": "The type of this object",
+          "enum": [
+            "single_event_pattern_match",
+            "aggregated_event_threshold_exceeded",
+            "category_match_filter_forward"
+          ]
+        },
+        "x_delta_info": {
+          "type": "object",
+          "description": "Dictionary of key/value pairs"
+        },
+        "extensions": {
+          "type": "object",
+          "properties": {
+            "extension-definition--cb23d54d-8332-524f-a0cc-cb405141948c": {
+              "type": "object",
+              "properties": {
+                "extension_type": {
+                  "enum": ["new-sdo"]
+                }
+              },
+              "required": ["new-sdo"]
+            },
+            "required": ["extension-definition--cb23d54d-8332-524f-a0cc-cb405141948c"]
+          }
+        }
+      }
+    }
+  ],
+  "required": ["x-delta-pid", "extensions"]
+}
