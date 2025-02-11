@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta2stix/refs/heads/main/schemas/sdo/x-delta-evidence.json",
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/sdo/x-delta-evidence.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "x-delta-evidence",
   "description": "This extension creates a custom SDO to represent x-delta-evidence objects",

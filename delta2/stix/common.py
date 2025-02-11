@@ -11,7 +11,7 @@ delta_identity = "identity--" + str(uuid.uuid5(delta_namespace, 'h2w-delta'))
 
 
 # Schema Base
-schema_base = "https://raw.githubusercontent.com/harveywargo2/h2w-delta2stix/refs/heads/main/schemas/"
+schema_base = "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/"
 
 
 # Common Variables

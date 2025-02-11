@@ -1,5 +1,5 @@
 {
-  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta2stix/refs/heads/main/schemas/sdo/x-simulation.json",
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/sdo/x-simulation.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "x-detection",
   "description": "This extension creates a custom stix 2.1 SDO to represent x-simulation objects",
