@@ -17,6 +17,9 @@ schema_base = "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/hea
 # Common Variables
 default_timestamp = "2018-01-01T00:00:00.000Z"
 
+# Delta Objects Strings
+x_delta_data = 'x-delta-data--'
+
 
 # x-delta-tier template
 # tier0-threat000-detect000-alert000

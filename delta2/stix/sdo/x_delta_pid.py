@@ -4,7 +4,7 @@ from stix2.properties import (
     ListProperty, TypeProperty, IDProperty, DictionaryProperty, StringProperty, ReferenceProperty,
     TimestampProperty, BooleanProperty
 )
-from delta2stix.common import (delta_namespace, delta_identity, schema_base)
+from delta2.stix.common import (delta_namespace, delta_identity, schema_base)
 
 
 # x-delta-pid custom stix 2.1 SDO

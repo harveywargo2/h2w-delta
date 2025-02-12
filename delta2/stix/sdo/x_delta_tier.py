@@ -5,7 +5,7 @@ from stix2.properties import (
     ReferenceProperty, TimestampProperty, DictionaryProperty
 )
 
-from delta2stix.common import (delta_namespace, delta_identity, schema_base)
+from delta2.stix.common import (delta_namespace, delta_identity, schema_base)
 
 
 # x-delta-tier custom stix 2.1 SDO

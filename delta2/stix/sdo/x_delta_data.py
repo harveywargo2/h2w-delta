@@ -3,7 +3,7 @@ from stix2 import (CustomObject, utils, v21, ExtensionDefinition)
 from stix2.properties import (
     StringProperty, ListProperty, TypeProperty, IDProperty, ReferenceProperty, TimestampProperty, DictionaryProperty
 )
-from delta2stix.common import (delta_namespace, delta_identity, schema_base)
+from delta2.stix.common import (delta_namespace, delta_identity, schema_base)
 
 
 # x-delta-data custom stix 2.1 SDO
@@ -16,7 +16,7 @@ x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     created_by_ref=delta_identity,
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
-    name="x-data-source",
+    name="x-delta-data",
     description="""
     This extension creates a custom SDO that is used to represent x-delta-data objects.
     This object contains information about data sources & telemetry requirements for detecting delta patterns.
@@ -39,7 +39,7 @@ x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     ('object_marking_refs', ListProperty(ReferenceProperty(valid_types='marking-definition', spec_version='2.1'))),
     ('name', StringProperty()),
     ('description', StringProperty()),
-    ('x_delta_data_id', StringProperty(required=True)),
+    ('x_delta_data', StringProperty(required=True)),
     ('x_data_requirements', DictionaryProperty()),
     ('x_data_info', DictionaryProperty())
 ], extension_name=x_delta_data_ExtensionDefinitionSMO.id)
