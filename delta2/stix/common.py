@@ -20,7 +20,8 @@ default_timestamp = "2018-01-01T00:00:00.000Z"
 
 # Delta Objects Strings
 x_delta_data = 'x-delta-data--'
-
+x_delta_pid = 'x-delta-pid--'
+x_delta_evidence = 'x-delta-evidence--'
 
 # x-delta-tier template
 # tier0-threat000-detect000-alert000

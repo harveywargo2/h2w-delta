@@ -38,8 +38,8 @@ x_delta_evidence_ExtensionDefinitionSMO = ExtensionDefinition(
     ('object_marking_refs', ListProperty(ReferenceProperty(valid_types='marking-definition', spec_version='2.1'))),
     ('external_references', ListProperty(v21.ExternalReference)),
     ('name', StringProperty()),
-    ('x_delta_evidence_id', StringProperty(required=True)),
-    ('x_evidence_info', DictionaryProperty())
+    ('x_delta_evidence', StringProperty(required=True)),
+    ('x_evidence_info', ListProperty(DictionaryProperty())),
 ], extension_name=x_delta_evidence_ExtensionDefinitionSMO.id)
 class XDeltaEvidence(object):
     pass
