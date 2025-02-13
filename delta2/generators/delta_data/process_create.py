@@ -6,7 +6,7 @@ process_create__windows_any = d2s.XDeltaData(
     id=d2s.x_delta_data + str(uuid.uuid5(d2s.delta_namespace, "process_create--windows_any")),
     created="2020-01-01T00:00:00.000Z",
     modified="2020-01-01T00:00:00.000Z",
-    name="Process Creation Data From Any Windows Device",
+    name="Process Creation Event From Any Windows Device",
     external_references=[
         {
             "source_name": "Sysmon Community Guid",
@@ -14,10 +14,10 @@ process_create__windows_any = d2s.XDeltaData(
         },
         {
             "source_name": "Windows Ultimate Security",
-            "url": "https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90001"
+            "url": "https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90011"
         },
         {
-            "source_name": "DeviceProcessEvents",
+            "source_name": "MDE Advanced Hunting Table",
             "url": "https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceprocessevents-table"
         }
     ],
