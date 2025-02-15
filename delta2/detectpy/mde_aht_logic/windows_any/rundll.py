@@ -24,6 +24,25 @@ def rundll_p0001(kql_ago='1d'):
 
 def rundll_p0002(kql_ago='1d'):
 
+    query_text = f"""DeviceFileEvents
+        | where Timestamp >= ago({str(kql_ago)})
+        | where ActionType =~ 'FileCreated'
+            and InitiatingProcessFileName in~ ('rundll32.exe', 'rundll64.exe')
+            and FileName endswith '.dmp'
+        """
+    query_json = {
+        "delta": ["rundll-p0002--file_create-windows_any"],
+        "title": "Rundll Created Dump File",
+        "mitre_technique": "t1003",
+        "mitre_sub_technique": "t1003.001",
+        "query": query_text
+        }
+
+    return query_json
+
+
+def rundll_p0003(kql_ago='1d'):
+
     query_text = f"""DeviceEvents
         | where Timestamp >= ago({str(kql_ago)})
         | where ActionType =~ 'ReadProcessMemoryApiCall'
@@ -36,7 +55,7 @@ def rundll_p0002(kql_ago='1d'):
             or InitiatingProcessCommandLine contains ' minidumpw '
         """
     query_json = {
-        "delta": ["rundll-p0002--read_process_memory-windows_any-mde"],
+        "delta": ["rundll-p0003--read_process_memory-windows_any-mde"],
         "title": "Rundll Created MiniDump of LSASS Process Memory",
         "mitre_technique": "t1003",
         "mitre_sub_technique": "t1003.001",
