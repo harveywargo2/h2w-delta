@@ -33,7 +33,7 @@ comsvcs__p0003___delta_evidence = d2s.XDeltaEvidence(
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
     name="Evidence Container for delta comsvcs-p0003",
-    x_delta_evidence="comsvcs-p0002--evidence",
+    x_delta_evidence="comsvcs-p0003--evidence",
     x_evidence_info=[
         {
             "type": "emulation",
