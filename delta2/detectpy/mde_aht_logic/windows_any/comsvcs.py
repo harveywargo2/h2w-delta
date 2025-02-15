@@ -1,109 +1,45 @@
 
 
-def comsvcs_minidump_on_cmdline(kql_ago='1d'):
-
-    query_text = f"""DeviceProcessEvents
-        | where Timestamp >= ago({kql_ago})
-        | where ProcessCommandLine has_all ('comsvcs', 'minidump')
-        """
-    query_json = {
-        "delta": ["comsvcs-p0001--process_create--windows_any"],
-        "title": "Comsvcs.dll Called MiniDump on CommandLine",
-        "query": query_text
-        }
-
-    return query_json
-
-
-def comsvcs_minidumpw_function_on_cmdline(kql_ago='1d'):
-
-    query_text = f"""DeviceProcessEvents
-        | where Timestamp >= ago({kql_ago})
-        | where ProcessCommandLine has_all ('comsvcs', '#24')
-            or ProcessCommandLine has_all ('comsvcs', '-24')
-        """
-    query_json = {
-        "delta": ["comsvcs-p0002--process_create-windows_any"],
-        "title": "Comsvcs.dll Called MiniDumpW Function on CommandLine",
-        "query": query_text
-        }
-
-    return query_json
-
-
-def comsvcs_created_file(kql_ago='1d'):
-
-    query_text = f"""DeviceFileEvents
-        | where Timestamp >= ago({kql_ago})
-        | where ActionType =~ 'FileCreated'
-            and InitiatingProcessCommandLine has 'comsvcs'
-        """
-    query_json = {
-        "delta": ["comsvcs-p0003"],
-        "title": "Comsvcs.dll Used to Create File",
-        "query": query_text
-        }
-    return query_json
-
-
 def comsvcs_process_dump_on_cmdline(kql_ago='1d'):
 
     query_text = f"""DeviceProcessEvents
-        | where Timestamp >= ago({kql_ago})
+        | where Timestamp >= ago({str(kql_ago)})
         | where ProcessCommandLine has 'comsvcs'
             and ProcessCommandLine has_any ('#24', '-24', 'minidump', 'minidumpw', '24')
         """
     query_json = {
-        "delta": [
-            "comsvcs-p0002",
-            "comsvcs-p0001"
-        ],
+        "delta": ["comsvcs-p0001--process_create-windows_any"],
         "title": "Comsvcs.dll Process Dump Indicator on Command Line",
+        "mitre_technique": "t1003",
+        "mitre_sub_technique": "t1003.001",
         "query": query_text
         }
 
     return query_json
 
 
-def comsvcs_lsass_read_minidump(kql_ago='1d'):
+def comsvcs_created_dmp_file(kql_ago='1d'):
 
-    query_text = f"""DeviceEvents
-        | where Timestamp >= ago({kql_ago})
-        | where ActionType =~ 'ReadProcessMemoryApiCall'
-            and FileName =~ 'lsass.exe'
-            and InitiatingProcessCommandLine has_all ('comsvcs', 'minidump')
-        """
-    query_json = {
-        "delta": "",
-        "title": "Comsvcs Accessed LSASS via Rundll and ReadProcessApiCall Data and Dumped Memory with MiniDump",
-        "query": query_text
-        }
-
-    return query_json
-
-
-def comsvcs_lsass_read_minidumpw(kql_ago='1d'):
-
-    query_text = f"""DeviceEvents
-        | where Timestamp >= ago({kql_ago})
-        | where ActionType =~ 'ReadProcessMemoryApiCall'
-            and FileName =~ 'lsass.exe'
+    query_text = f"""DeviceFileEvents
+        | where Timestamp >= ago({str(kql_ago)})
+        | where ActionType =~ 'FileCreated'
             and InitiatingProcessCommandLine has 'comsvcs'
-        | where InitiatingProcessCommandLine has_any ('#24', '-24', '24')
+            and FileName endswith '.dmp'
         """
     query_json = {
-        "delta": "",
-        "title": "Comsvcs Accessed LSASS via Rundll in ReadProcessApiCall Data and Dumped Memory with MiniDumpW",
+        "delta": ["comsvcs-p0002--file_create-windows_any"],
+        "title": "Comsvcs.dll Used to Create File",
+        "mitre_technique": "t1003",
+        "mitre_sub_technique": "t1003.001",
         "query": query_text
         }
-
     return query_json
 
 
 def comsvcs_lsass_read_memory_dump(kql_ago='1d'):
 
     query_text = f"""DeviceEvents
-        | where Timestamp >= ago({kql_ago})
+        | where Timestamp >= ago({str(kql_ago)})
         | where ActionType =~ 'ReadProcessMemoryApiCall'
             and FileName =~ 'lsass.exe'
             and InitiatingProcessCommandLine has 'comsvcs'
@@ -116,3 +52,4 @@ def comsvcs_lsass_read_memory_dump(kql_ago='1d'):
         }
 
     return query_json
+
