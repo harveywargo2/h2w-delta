@@ -2,7 +2,7 @@ import delta2.stix as d2s
 import uuid
 
 
-read_process_memory___windows_any = d2s.XDeltaData(
+read_process_memory__windows_any = d2s.XDeltaData(
     id=d2s.x_delta_data + str(uuid.uuid5(d2s.delta_namespace, "read_process_memory--windows_any")),
     created="2020-01-01T00:00:00.000Z",
     modified="2020-01-01T00:00:00.000Z",

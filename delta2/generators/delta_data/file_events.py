@@ -2,7 +2,7 @@ import delta2.stix as d2s
 import uuid
 
 
-file_create___windows_any = d2s.XDeltaData(
+file_create__windows_any = d2s.XDeltaData(
     id=d2s.x_delta_data + str(uuid.uuid5(d2s.delta_namespace, "file_create--windows_any")),
     created="2020-01-01T00:00:00.000Z",
     modified="2020-01-01T00:00:00.000Z",
@@ -36,11 +36,11 @@ file_create___windows_any = d2s.XDeltaData(
     }
 )
 
-file_create__mde___windows_any = d2s.XDeltaData(
+file_create__windows_any__mde = d2s.XDeltaData(
     id=d2s.x_delta_data + str(uuid.uuid5(d2s.delta_namespace, "file_create-mde--windows_any")),
     created="2020-01-01T00:00:00.000Z",
     modified="2020-01-01T00:00:00.000Z",
-    name="File Creation Event From MDE From Any Windows Device",
+    name="File Creation Event From Any Windows Device Via MDE ",
     external_references=[
         {
             "source_name": "MDE Advanced Hunting Table",

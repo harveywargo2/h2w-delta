@@ -93,5 +93,27 @@ _p0001_evidence_list = [
     },
     {
         "process_command_line": r'''powershell.exe -ExecutionPolicy Bypass -C "C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump <PID>Get-Process lsass).id $env:TEMP\lsass-<filename>.dmp full"'''
+    },
+    {
+        "process_command_line": r'''cmd.exe /Q /c sc create DumpProc binpath= "rundll32 comsvcs,#24 1204 c:\windows\tmp1654.log full" 1> \\127.0.0.1\ADMIN$\__1622704760.494238 2>&1'''
+    },
+    {
+        "process_command_line": r'''rundll32.exe  comsvcs.dll,#24 600 C:\Users\user\Desktop\lsass.dmp full'''
+    },
+    {
+        "process_command_line": r'''sc  create DumpProc binpath= "rundll32 comsvcs,#24 1204 c:\windows\tmp.log full" '''
     }
 ]
+
+
+_p0002_evidence_list = [
+    {
+        "file_name": "<filename>.dmp",
+        "process_command_line": r'''"C:\Windows\System32\rundll32.exe"  C:\Windows\System32\comsvcs.dll MiniDump <PID> \Windows\Temp\<filename>.dmp full'''
+    },
+    {
+        "file_name": "lsass-<filename>.dmp",
+        "process_command_line": r'''"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" & {C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump <PID>Get-Process lsass).id $env:TEMP\lsass-<filename>.dmp full}'''
+    }
+]
+
