@@ -1,6 +1,6 @@
 
 
-def comsvcs_process_dump_on_cmdline(kql_ago='1d'):
+def comsvcs_p0001(kql_ago='1d'):
 
     query_text = f"""DeviceProcessEvents
         | where Timestamp >= ago({str(kql_ago)})
@@ -18,7 +18,7 @@ def comsvcs_process_dump_on_cmdline(kql_ago='1d'):
     return query_json
 
 
-def comsvcs_created_dmp_file(kql_ago='1d'):
+def comsvcs_p0002(kql_ago='1d'):
 
     query_text = f"""DeviceFileEvents
         | where Timestamp >= ago({str(kql_ago)})
@@ -36,7 +36,7 @@ def comsvcs_created_dmp_file(kql_ago='1d'):
     return query_json
 
 
-def comsvcs_lsass_read_memory_dump(kql_ago='1d'):
+def comsvcs_p0003(kql_ago='1d'):
 
     query_text = f"""DeviceEvents
         | where Timestamp >= ago({str(kql_ago)})

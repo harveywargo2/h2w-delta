@@ -1,5 +1,6 @@
-from .windows_any.comsvcs import (comsvcs_process_dump_on_cmdline,
-                                  comsvcs_created_dmp_file,
-                                  comsvcs_lsass_read_memory_dump)
+from .windows_any.comsvcs import (comsvcs_p0001,
+                                  comsvcs_p0002,
+                                  comsvcs_p0003)
 
-
+from .windows_any.rundll import (rundll_p0001,
+                                 rundll_p0002)
