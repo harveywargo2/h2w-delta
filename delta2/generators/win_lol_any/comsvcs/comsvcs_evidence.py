@@ -10,7 +10,7 @@ _comsvcs_p0001_e01 = {
     "ns_meta": {
         "date": "2021-06-23",
     },
-    "pattern_type": "list_dict",
+    "pattern_type": "dict_list",
     "pattern_count": 23,
     "patterns": [
         {
