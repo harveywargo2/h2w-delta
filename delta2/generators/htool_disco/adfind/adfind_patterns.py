@@ -3,6 +3,17 @@ import uuid
 import stix2
 
 
+_shared_reference = [
+    {
+        "source_name": "DFIR",
+        "url": "https://thedfirreport.com/2020/05/08/adfind-recon/"
+    },
+    {
+        "source_name": "JoeWare",
+        "url": "https://www.joeware.net/freetools/tools/adfind/usage.htm"
+    }
+]
+
 adfind__p0001___process_create__windows_any = d2s.XDeltaPid(
     id=d2s.x_delta_pid + str(uuid.uuid5(d2s.delta_namespace, "adfind-p0001--process_create-windows_any")),
     created_by_ref=d2s.delta_identity,
