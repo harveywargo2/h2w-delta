@@ -94,8 +94,23 @@ _comsvcs_p0001_e02 = {
         "guid": "2536dee2-12fb-459a-8c37-971844fa73be",
     },
     "pattern_type": "dict",
-    "pattern_count": 23,
+    "pattern_count": 1,
     "patterns": {"process_command_line": r'''"C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump (Get-Process lsass).id $env:TEMP\lsass-comsvcs.dmp full"'''}
+}
+
+
+_comsvcs_p0001_e03 = {
+    "evidence_type": "emulation",
+    "evidence_source": "atomic_red_team",
+    "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003/T1003.md#atomic-test-3---dump-svchostexe-to-gather-rdp-credentials",
+    "ns_meta": {
+        "guid": "d400090a-d8ca-4be0-982e-c70598a23de9",
+    },
+    "pattern_type": "dict",
+    "pattern_count": 1,
+    "patterns": {"process_command_line": r'''$ps = (Get-NetTCPConnection -LocalPort 3389 -State Established -ErrorAction Ignore)
+                if($ps){$id = $ps[0].OwningProcess} else {$id = (Get-Process svchost)[0].Id }
+                C:\Windows\System32\rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump $id $env:TEMP\svchost-exe.dmp full'''}
 }
 
 
@@ -107,7 +122,7 @@ comsvcs__p0001___evidence = d2s.XDeltaEvidence(
     object_marking_refs=[stix2.TLP_WHITE],
     name="Evidence Container comsvcs-p0001",
     x_delta_evidence="comsvcs-p0001--evidence",
-    x_evidence_info=[_comsvcs_p0001_e01, _comsvcs_p0001_e02]
+    x_evidence_info=[_comsvcs_p0001_e01, _comsvcs_p0001_e02, _comsvcs_p0001_e03]
 )
 
 
@@ -170,3 +185,4 @@ comsvcs__p0003___evidence = d2s.XDeltaEvidence(
     x_delta_evidence="comsvcs-p0003--evidence",
     x_evidence_info=[_comsvcs_p1003_e01]
 )
+
