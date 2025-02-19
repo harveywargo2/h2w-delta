@@ -124,3 +124,24 @@ def adfind_p0007(kql_ago='1d'):
 
     return query_json
 
+
+def adfind_p0008(kql_ago='1d'):
+
+    query_text = f"""DeviceProcessEvents
+        | where Timestamp >= ago({str(kql_ago)})
+        | where ProcessCommandLine has_any ('objectcategory=person', 'objectcategory=computer', 'objectcategory=subnet', 
+                                            'objectcategory=organizationalUnit', 'domainlist', 'trustdmp', 'adinfo', 
+                                            'dclist')
+            and ProcessCommandLine has_any ('-f', '-sc')
+        | where ProcessCommandLine contains ' > '
+            or ProcessCommandLine contains ' >> '
+        """
+    query_json = {
+        "delta": ["adfind-p0008--process_create-windows_any"],
+        "title": "Adfind Common Enumeration Command Redirected to Output File",
+        "mitre_technique": "",
+        "mitre_sub_technique": "",
+        "query": query_text
+        }
+
+    return query_json

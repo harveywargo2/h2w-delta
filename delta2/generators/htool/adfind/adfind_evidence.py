@@ -265,3 +265,35 @@ adfind__p0007___evidence = d2s.XDeltaEvidence(
     x_evidence_info=[_adfind_p0007_e01, _adfind_p0007_e02]
 )
 
+
+_adfind_p0008_e01 = {
+    "evidence_type": "intel_report",
+    "evidence_source": "dfir",
+    "url": "https://thedfirreport.com/2020/05/08/adfind-recon/",
+    "ns_meta": {
+        "date": "2020-05-08",
+    },
+    "pattern_type": "dict_list",
+    "pattern_count": 8,
+    "patterns": [
+        {"process_command_line": r'''adfind.exe -f "objectcategory=person" > ad_users.txt'''},
+        {"process_command_line": r'''adfind.exe -f "objectcategory=computer" > ad_computers.txt'''},
+        {"process_command_line": r'''adfind.exe -gcb -sc trustdmp > trustdmp.txt'''},
+        {"process_command_line": r'''adfind.exe  -subnets -f objectcategory=subnet > subnets.txt'''},
+        {"process_command_line": r'''adfind.exe  -sc domainlist > domainlist.txt'''},
+        {"process_command_line": r'''adfind.exe  -sc dcmodes > dcmodes.txt'''},
+        {"process_command_line": r'''adfind.exe  -sc adinfo > adinfo.txt'''},
+        {"process_command_line": r'''adfind.exe  -sc dclist > dclist.txt'''},
+    ]
+}
+
+adfind__p0008___evidence = d2s.XDeltaEvidence(
+    id=d2s.x_delta_evidence + str(uuid.uuid5(d2s.delta_namespace, "adfind-p0008--evidence")),
+    created_by_ref=d2s.delta_identity,
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
+    object_marking_refs=[stix2.TLP_WHITE],
+    name="Evidence Container adfind-p0008",
+    x_delta_evidence="adfind-p0008--evidence",
+    x_evidence_info=[_adfind_p0008_e01]
+)

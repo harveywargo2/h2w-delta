@@ -170,3 +170,25 @@ adfind__p0007___process_create__windows_any = d2s.XDeltaPid(
         "procedure": "ad_enumeration"
     }
 )
+
+
+adfind__p0008___process_create__windows_any = d2s.XDeltaPid(
+    id=d2s.x_delta_pid + str(uuid.uuid5(d2s.delta_namespace, "adfind-p0008--process_create-windows_any")),
+    created_by_ref=d2s.delta_identity,
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
+    name="Adfind Enumeration Command Redirected To File",
+    description="Pattern Representing Evidence of Adfind AD Enumeration",
+    object_marking_refs=[stix2.TLP_WHITE],
+    external_references=_shared_reference,
+    labels=[],
+    x_delta_pid="adfind-p0008--process_create-windows_any",
+    x_delta_category="single_line_match",
+    x_delta_info={
+        "pattern_case": "insensitive",
+        "pattern": """[process_command_line CONTAINS 'objectcategory=person' OR 'objectcategory=computer' OR 'objectcategory=subnet' OR 'objectcategory=organizationalUnit' OR 'domainlist' OR 'trustdmp' OR 'adinfo' OR 'dclist'] AND [process_command_line CONTAINS '-f' OR '-sc-] AND [process_command_line CONTAINS ' > ' OR ' >> ']""",
+        "mitre_technique": ["t1482", "t1087.002", "t1018"],
+        "mitre_sub_technique": "",
+        "procedure": "ad_enumeration"
+    }
+)
