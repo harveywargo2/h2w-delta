@@ -145,3 +145,4 @@ def adfind_p0008(kql_ago='1d'):
         }
 
     return query_json
+
