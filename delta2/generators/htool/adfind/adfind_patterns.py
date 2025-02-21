@@ -120,7 +120,7 @@ adfind__p0005___process_create__windows_any = d2s.XDeltaPid(
     x_delta_category="single_line_match",
     x_delta_info={
         "pattern_case": "insensitive",
-        "pattern": "[process_command_line CONTAINS 'computers_pwdnotreqd' OR 'computers_pwdnotreqd'] AND [process_command_line CONTAINS '-gcb' OR '-sc' OR '-gc']",
+        "pattern": "[process_command_line CONTAINS 'users_pwdnotreqd' OR 'computers_pwdnotreqd'] AND [process_command_line CONTAINS '-gcb' OR '-sc' OR '-gc']",
         "mitre_technique": "",
         "mitre_sub_technique": "",
         "procedure": "ad_enumeration"
@@ -186,7 +186,7 @@ adfind__p0008___process_create__windows_any = d2s.XDeltaPid(
     x_delta_category="single_line_match",
     x_delta_info={
         "pattern_case": "insensitive",
-        "pattern": """[process_command_line CONTAINS 'objectcategory=person' OR 'objectcategory=computer' OR 'objectcategory=subnet' OR 'objectcategory=organizationalUnit' OR 'domainlist' OR 'trustdmp' OR 'adinfo' OR 'dclist'] AND [process_command_line CONTAINS '-f' OR '-sc-] AND [process_command_line CONTAINS ' > ' OR ' >> ']""",
+        "pattern": "[process_command_line CONTAINS 'objectcategory=person' OR 'objectcategory=computer' OR 'objectcategory=subnet' OR 'objectcategory=organizationalUnit' OR 'domainlist' OR 'trustdmp' OR 'adinfo' OR 'dclist'] AND [process_command_line CONTAINS '-f' OR '-sc-] AND [process_command_line CONTAINS ' > ' OR ' >> ']",
         "mitre_technique": ["t1482", "t1087.002", "t1018"],
         "mitre_sub_technique": "",
         "procedure": "ad_enumeration"

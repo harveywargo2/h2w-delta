@@ -58,8 +58,8 @@ comsvcs__p0001___process_create__windows_any = d2s.XDeltaPid(
 )
 
 
-comsvcs__p0002___process_create__windows_any__mde = d2s.XDeltaPid(
-    id=d2s.x_delta_pid + str(uuid.uuid5(d2s.delta_namespace, "comsvcs-p0002--process_create-windows_any__mde")),
+comsvcs__p0002___files_create__windows_any__mde = d2s.XDeltaPid(
+    id=d2s.x_delta_pid + str(uuid.uuid5(d2s.delta_namespace, "comsvcs-p0002--file_create-windows_any__mde")),
     created_by_ref=d2s.delta_identity,
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
@@ -68,7 +68,7 @@ comsvcs__p0002___process_create__windows_any__mde = d2s.XDeltaPid(
     object_marking_refs=[stix2.TLP_WHITE],
     external_references=_shared_references,
     labels=[],
-    x_delta_pid="comsvcs-p0002--process_create-windows_any-mde",
+    x_delta_pid="comsvcs-p0002--file_create-windows_any-mde",
     x_delta_category="single_line_match",
     x_delta_info={
         "pattern_case": "insensitive",
