@@ -10,7 +10,7 @@ _shared_references = [
         "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.002/T1003.002.md#atomic-test-5---dump-volume-shadow-copy-hives-with-certutil"
     },
     {
-"source_name": "atomic red team",
+        "source_name": "lolbas",
         "url": "https://lolbas-project.github.io/lolbas/Binaries/Certutil/"
     }
 ]

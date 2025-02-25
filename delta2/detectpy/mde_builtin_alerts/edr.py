@@ -47,3 +47,54 @@ def msftedr_p0003(kql_ago='1d'):
         }
 
     return query_json
+
+
+def msftedr_p0004(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Adfind tool collecting Active Directory information'
+        """
+    query_json = {
+        "delta": ["adfind-p0001--process_create-windows_any"],
+        "title": "Adfind tool collecting Active Directory information",
+        "mitre_technique": ["T1016","T1018","T1069","T1087","T1482"],
+        "mitre_sub_technique": ["T1069.002","T1087.002","T1087.003"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0005(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Suspicious LDAP query'
+        """
+    query_json = {
+        "delta": ["adfind-p0001--process_create-windows_any"],
+        "title": "Suspicious LDAP query",
+        "mitre_technique": ["T1018","T1033","T1069","T1082","T1087","T1135","T1558"],
+        "mitre_sub_technique": ["T1069.002","T1087.002","T1558.003", "T1087.003"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0006(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Uncommon Adfind tool launch'
+        """
+    query_json = {
+        "delta": ["adfind-p0001--process_create-windows_any"],
+        "title": "Uncommon Adfind tool launch",
+        "mitre_technique": ["T1016","T1018","T1069","T1087","T1482"],
+        "mitre_sub_technique": "",
+        "query": query_text
+        }
+
+    return query_json
