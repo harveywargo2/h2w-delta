@@ -98,3 +98,20 @@ def msftedr_p0006(kql_ago='1d'):
         }
 
     return query_json
+
+
+def msftedr_p0007(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Sensitive information theft activity via Security Account Manager'
+        """
+    query_json = {
+        "delta": ["certutil-p0001--process_create-windows_any"],
+        "title": "Sensitive information theft activity via Security Account Manager",
+        "mitre_technique": ["T1003","T1012"],
+        "mitre_sub_technique": ["T1003.002","T1003.004","T1003.005"],
+        "query": query_text
+        }
+
+    return query_json
