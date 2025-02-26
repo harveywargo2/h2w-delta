@@ -1,3 +1,4 @@
 stix2
 h2w-aztools
 python-dotenv
+openpyxl

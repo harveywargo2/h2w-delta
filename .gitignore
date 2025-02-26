@@ -1,3 +1,6 @@
+# Ignore open XLSX & CSV
+~$**
+
 # Personal Testing Or Directories to not Push to git
 test/**
 dumps/**
