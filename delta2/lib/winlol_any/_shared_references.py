@@ -44,3 +44,12 @@ _certutil = [
         "url": "https://lolbas-project.github.io/lolbas/Binaries/Certutil/"
     }
 ]
+
+
+
+_rundll = [
+    {
+        "source_name": "LOLBAS",
+        "url": "https://lolbas-project.github.io/lolbas/Binaries/Rundll32/"
+    }
+]
