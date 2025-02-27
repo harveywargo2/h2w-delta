@@ -5,7 +5,6 @@ def comsvcs_p0001(kql_ago='1d'):
     query_text = f"""DeviceProcessEvents
         | where Timestamp >= ago({str(kql_ago)})
         | where ProcessCommandLine has_all ('comsvcs', 'minidump')
-            and ProcessCommandLine has_any ('#24', '-24', 'minidump', 'minidumpw', '24')
         """
     query_json = {
         "delta": "comsvcs-p0001--process_create-windows_any",
@@ -61,7 +60,7 @@ def comsvcs_p0004(kql_ago='1d'):
         | where ActionType =~ 'ReadProcessMemoryApiCall'
             and FileName =~ 'lsass.exe'
             and InitiatingProcessCommandLine has 'comsvcs'
-        | where InitiatingProcessCommandLine has_any ('#24', '-24', '24', 'minidump', 'minidumpw')
+        | where InitiatingProcessCommandLine has_any ('#24', '-24', 'minidump', 'minidumpw')
         """
     query_json = {
         "delta": "comsvcs-p0004--read_process_memory-windows_any-mde",

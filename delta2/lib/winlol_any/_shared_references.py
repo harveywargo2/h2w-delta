@@ -32,3 +32,15 @@ _process_memory_dump_comsvcs = [
         "url": "https://github.com/login-securite/lsassy/blob/14d8f8ae596ecf22b449bfe919829173b8a07635/lsassy/dumpmethod/comsvcs.py"
     }
 ]
+
+
+_certutil = [
+    {
+        "source_name": "atomic red team",
+        "url": "https://github.com/redcanaryco/atomic-red-team/blob/master/atomics/T1003.002/T1003.002.md#atomic-test-5---dump-volume-shadow-copy-hives-with-certutil"
+    },
+    {
+        "source_name": "lolbas",
+        "url": "https://lolbas-project.github.io/lolbas/Binaries/Certutil/"
+    }
+]
