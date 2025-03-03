@@ -1,6 +1,5 @@
 
 
-
 # Common Variables
 _process_memory_dump_comsvcs = [
     {
@@ -94,6 +93,10 @@ _lsass = [
     {
         "source_name": "detection fyi",
         "url": "https://detection.fyi/sigmahq/sigma/windows/process_access/proc_access_win_lsass_werfault/"
+    },
+    {
+        "source_name": "t1003 hunt",
+        "url": "https://www.slideshare.net/heirhabarov/hunting-for-credentials-dumping-in-windows-environment#6"
     }
 ]
 
@@ -124,3 +127,4 @@ _rundll = [
         "url": "https://lolbas-project.github.io/lolbas/Binaries/Rundll32/"
     }
 ]
+

@@ -1,3 +1,5 @@
+
+
 def msftav_p0001(kql_ago='1d'):
 
     query_text = f"""
@@ -52,3 +54,32 @@ def msftav_p0002(kql_ago='1d'):
         }
 
     return query_json
+
+
+def msftav_p0003(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'gsecdump'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'gsecdump'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Gsecdump MDE Av Detection",
+        "mitre_technique": ["t1003"],
+        "mitre_sub_technique": ["t10003.001", "t1003.002"],
+        "query": query_text
+        }
+
+    return query_json
+
