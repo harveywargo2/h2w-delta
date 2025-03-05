@@ -166,3 +166,54 @@ def msftedr_p0010(kql_ago='1d'):
         }
 
     return query_json
+
+
+def msftedr_p0011(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Sensitive information lookup'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Sensitive information lookup",
+        "mitre_technique": ["T1003","T1012","T1083","T1552"],
+        "mitre_sub_technique": ["T1552.001","T1552.002"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0012(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Sensitive data was extracted from registry'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Sensitive data was extracted from registry",
+        "mitre_technique": ["T1003"],
+        "mitre_sub_technique": ["T1003.002"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0013(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Reading files from volume shadown copies'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Reading files from volume shadown copies",
+        "mitre_technique": ["T1003"],
+        "mitre_sub_technique": ["T1003.002"],
+        "query": query_text
+        }
+
+    return query_json
