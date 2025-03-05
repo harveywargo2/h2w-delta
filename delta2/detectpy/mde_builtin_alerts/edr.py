@@ -115,3 +115,54 @@ def msftedr_p0007(kql_ago='1d'):
         }
 
     return query_json
+
+
+def msftedr_p0008(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Sensitive information theft activity via Security Account Manager'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Possible attempt to steal credentials",
+        "mitre_technique": ["T1003"],
+        "mitre_sub_technique": [""],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0009(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Suspicious registry export'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Suspicious registry export",
+        "mitre_technique": ["T1003","T1012","T1074"],
+        "mitre_sub_technique": ["T1074.001"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0010(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'A malicious PowerShell Cmdlet was invoked on the machine'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "A malicious PowerShell Cmdlet was invoked on the machine",
+        "mitre_technique": ["T1021", "T1059", "T1069", "T1087", "T1003", "T1555", "T1012", "T1135", "T1007"],
+        "mitre_sub_technique": ["T1021.001", "T1059.001", "T1087.001", "T1055.003"],
+        "query": query_text
+        }
+
+    return query_json

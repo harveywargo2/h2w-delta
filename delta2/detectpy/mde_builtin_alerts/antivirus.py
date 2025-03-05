@@ -83,3 +83,114 @@ def msftav_p0003(kql_ago='1d'):
 
     return query_json
 
+
+def msftav_p0004(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'presenoker'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'presenoker'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Gsecdump MDE Av Detection",
+        "mitre_technique": ["t1003"],
+        "mitre_sub_technique": ["t10003.001", "t1003.002"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftav_p0005(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'ATPMiniDump'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'ATPMiniDump'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Gsecdump MDE Av Detection",
+        "mitre_technique": ["t1003"],
+        "mitre_sub_technique": ["t10003.001"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftav_p0006(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'DumpLsass'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'DumpLsass'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Gsecdump MDE Av Detection",
+        "mitre_technique": ["t1003"],
+        "mitre_sub_technique": ["t10003.001"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftav_p0007(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'Posdercan'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'Posdercan'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Gsecdump MDE Av Detection",
+        "mitre_technique": ["t1003"],
+        "mitre_sub_technique": ["t10003.001"],
+        "query": query_text
+        }
+
+    return query_json
