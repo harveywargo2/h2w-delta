@@ -16,6 +16,15 @@ _adfind = [
 ]
 
 
+_dsquery = [
+    {
+        "source_name": "specter ops",
+        "url": "https://posts.specterops.io/an-introduction-to-manual-active-directory-querying-with-dsquery-and-ldapsearch-84943c13d7eb"
+    }
+
+]
+
+
 _gsecdump = [
     {
         "source_name": "mitre attack software",
@@ -54,3 +63,4 @@ _gsecdump = [
         "url": "https://www.virustotal.com/gui/file/94cae63dcbabb71c5dd43f55fd09caeffdcd7628a02a112fb3cba36698ef72bc"
     }
 ]
+

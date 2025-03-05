@@ -210,10 +210,46 @@ def msftedr_p0013(kql_ago='1d'):
         """
     query_json = {
         "delta": [""],
-        "title": "Reading files from volume shadown copies",
+        "title": "Reading files from volume shadow copies",
         "mitre_technique": ["T1003"],
         "mitre_sub_technique": ["T1003.002"],
         "query": query_text
         }
 
     return query_json
+
+
+def msftedr_p0014(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'PowerView script detected'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "PowerView script detected",
+        "mitre_technique": ["T1482"],
+        "mitre_sub_technique": [""],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftedr_p0015(kql_ago='1d'):
+
+    query_text = f"""AlertEvidence
+        | where Timestamp >= ago({str(kql_ago)})
+        | where Title =~ 'Suspicious Domain Trust Discovery'
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Suspicious Domain Trust Discovery",
+        "mitre_technique": ["T1482"],
+        "mitre_sub_technique": [""],
+        "query": query_text
+        }
+
+    return query_json
+
+
