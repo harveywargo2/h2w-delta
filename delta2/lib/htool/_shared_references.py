@@ -64,3 +64,23 @@ _gsecdump = [
     }
 ]
 
+
+_powerview = [
+    {
+        "source_name": "github",
+        "url": "https://github.com/PowerShellMafia/PowerSploit"
+    },
+    {
+        "source_name": "powersploit powerview documentation",
+        "url": "https://powersploit.readthedocs.io/en/latest/Recon/"
+    },
+    {
+        "source_name": "ired team",
+        "url": "https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/active-directory-enumeration-with-powerview"
+    },
+    {
+        "source_name": "hack tricks",
+        "url": "https://book.hacktricks.wiki/en/windows-hardening/basic-powershell-for-pentesters/powerview.html"
+    }
+]
+

@@ -2,6 +2,7 @@ from .htool.adfind_logic import (adfind_p0001, adfind_p0002, adfind_p0003, adfin
                                  adfind_p0007, adfind_p0008)
 from .htool.dsquery import (dsquery_p0001)
 from .htool.gsecdump import (gsecdump_p0001)
+from .htool.powerview import (powerview_g0001, powerview_g0002, powerview_g0003)
 from .winlol_any.certutil_logic import (certutil_p0001)
 from .winlol_any.comsvcs_logic import (comsvcs_p0001, comsvcs_p0002, comsvcs_p0003, comsvcs_p0004)
 from .winlol_any.lsass import (lsass_p0001, lsass_p0002, lsass_p0003, lsass_p0004, lsass_p0005, lsass_p0006,
