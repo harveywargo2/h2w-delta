@@ -279,3 +279,86 @@ def msftav_p0010(kql_ago='1d'):
 
     return query_json
 
+
+def msftav_p0011(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'nanodump'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'nanodump'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "Nanodump MDE Av Detection",
+        "mitre_technique": ["t1003"],
+        "mitre_sub_technique": ["t10003.001"],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftav_p0012(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'MaleficAms'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'MaleficAms'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "MaleficAms MDE Av Detection",
+        "mitre_technique": [""],
+        "mitre_sub_technique": [""],
+        "query": query_text
+        }
+
+    return query_json
+
+
+def msftav_p0013(kql_ago='1d'):
+
+    query_text = f"""
+        let AvAlertEvidence = materialize(
+            AlertEvidence
+            | where Timestamp >= ago({str(kql_ago)})
+                and DetectionSource =~ 'Antivirus'
+                and Title contains 'LsassDump'
+        );
+        let AvDeviceEvents = materialize(
+            DeviceEvents
+            | where Timestamp >= ago({str(kql_ago)})
+                and ActionType in~ ('OtherAlertRelatedActivity', 'AntivirusDetection')
+                and AdditionalFields contains 'LsassDump'
+        );
+        union AvAlertEvidence, AvDeviceEvents
+        """
+    query_json = {
+        "delta": [""],
+        "title": "LsassDump MDE Av Detection",
+        "mitre_technique": [""],
+        "mitre_sub_technique": [""],
+        "query": query_text
+        }
+
+    return query_json
