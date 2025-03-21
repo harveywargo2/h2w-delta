@@ -1,8 +1,8 @@
 {
-  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/sdo/x-delta-data.json",
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/sdo/x-delta-did.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "x-detection",
-  "description": "This extension creates a custom stix 2.1 SDO to represent x-delta-data objects",
+  "description": "This extension creates a custom stix 2.1 SDO to represent x-delta-did objects",
   "type": "object",
   "allof": [
     {
@@ -12,12 +12,12 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of this object. which MUST be the literal 'x-delta-data'.",
-          "enum": ["x-delta-data"]
+          "description": "The type of this object. which MUST be the literal 'x-delta-did'.",
+          "enum": ["x-delta-did"]
         },
         "id": {
           "title": "id",
-          "pattern": "^x-delta-data--"
+          "pattern": "^x-delta-did--"
         },
         "name": {
           "type": "string",
@@ -31,9 +31,9 @@
           "type": "string",
           "description": "The unique identifier of the detection",
         },
-        "x_data_requirements": {
+        "x_did_reqs": {
           "type": "object",
-          "description": "Dictionary of key/value pairs"
+          "description": "Dictionary of key/value pairs for data requirements "
         },
         "x_data_info": {
           "type": "object",
@@ -42,7 +42,7 @@
         "extensions": {
           "type": "object",
           "properties": {
-            "extension-definition--e57837b7-9083-5d7b-bc58-83059e942f59": {
+            "extension-definition--9f637825-06a9-5d4e-9ac2-cb8de9f2cccd": {
               "type": "object",
               "properties": {
                 "extension_type": {
@@ -51,11 +51,11 @@
               },
               "required": ["new-sdo"]
             },
-            "required": ["extension-definition--e57837b7-9083-5d7b-bc58-83059e942f59"]
+            "required": ["extension-definition--9f637825-06a9-5d4e-9ac2-cb8de9f2cccd"]
           }
         }
       }
     }
   ],
-  "required": ["x-delta-data", "extensions"]
+  "required": ["x-delta-did", "extensions"]
 }

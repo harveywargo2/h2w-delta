@@ -7,19 +7,19 @@ from delta2.stix.common import (delta_namespace, delta_identity, schema_base)
 
 
 # x-delta-data custom stix 2.1 SDO
-_type = 'x-delta-data'
+_type = 'x-delta-did'
 
 
-# extension-definition--e57837b7-9083-5d7b-bc58-83059e942f59
+# extension-definition--9f637825-06a9-5d4e-9ac2-cb8de9f2cccd
 x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     id="extension-definition--" + str(uuid.uuid5(delta_namespace, _type)),
     created_by_ref=delta_identity,
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
-    name="x-delta-data",
+    name="x-delta-did",
     description="""
-    This extension creates a custom SDO that is used to represent x-delta-data objects.
-    This object contains information about data sources & telemetry requirements for detecting delta patterns.
+    This extension creates a custom stix 2.1 SDO that is used to represent x-delta-did objects.
+    The delta-did stands for Delta Data ID and follows format of "shortname-pid0000".
     """,
     schema=schema_base+"sdo/x-delta-data.json",
     version="1.0",
@@ -39,9 +39,9 @@ x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     ('object_marking_refs', ListProperty(ReferenceProperty(valid_types='marking-definition', spec_version='2.1'))),
     ('name', StringProperty()),
     ('description', StringProperty()),
-    ('x_delta_data', StringProperty(required=True)),
-    ('x_data_requirements', DictionaryProperty()),
-    ('x_data_info', DictionaryProperty())
+    ('x_delta_did', StringProperty(required=True)),
+    ('x_did_reqs', DictionaryProperty()),
+    ('x_did_ns_obj', DictionaryProperty())
 ], extension_name=x_delta_data_ExtensionDefinitionSMO.id)
 class XDeltaData(object):
     pass

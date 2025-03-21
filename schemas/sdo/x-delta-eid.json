@@ -1,8 +1,8 @@
 {
-  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/sdo/x-delta-evidence.json",
+  "$id": "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/heads/main/schemas/sdo/x-delta-eid.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "x-delta-evidence",
-  "description": "This extension creates a custom SDO to represent x-delta-evidence objects",
+  "title": "x-delta-eid",
+  "description": "This extension creates a custom SDO to represent x-delta-eid objects",
   "type": "object",
   "allof": [
     {
@@ -12,21 +12,21 @@
       "properties": {
         "type": {
           "type": "string",
-          "description": "The type of this object. which MUST be the literal 'x-delta-evidence'.",
-          "enum": ["x-delta-evidence"]
+          "description": "The type of this object. which MUST be the literal 'x-delta-eid'.",
+          "enum": ["x-delta-eid"]
         },
         "id": {
           "title": "id",
-          "pattern": "^x-delta-evidence--"
+          "pattern": "^x-delta-eid--"
         },
         "name": {
           "type": "string",
           "description": "The name used to identify the object."
         },
-        "x_delta_evidence_id": {
+        "x_delta_eid": {
           "type": "string",
-          "description": "The fingerprint of the x-delta-evidenc",
-          "pattern": "^[a-z_]{,24}-p[0-9]{4}-evidence"
+          "description": "The fingerprint of the x-delta-eid",
+          "pattern": "^[a-z_]{,24}-eid[0-9]{4}"
         },
         "x_evidence_info": {
           "type": "object",
@@ -35,7 +35,7 @@
         "extensions": {
           "type": "object",
           "properties": {
-            "extension-definition--9ca6c17f-5682-513e-a5e9-3e6df5f9fd00": {
+            "extension-definition--cb878c8d-2c1d-5d9c-a2b3-d3f45dc63f2e": {
               "type": "object",
               "properties": {
                 "extension_type": {
@@ -44,11 +44,11 @@
               },
               "required": ["new-sdo"]
             },
-            "required": ["extension-definition--9ca6c17f-5682-513e-a5e9-3e6df5f9fd00"]
+            "required": ["extension-definition--cb878c8d-2c1d-5d9c-a2b3-d3f45dc63f2e"]
           }
         }
       }
     }
   ],
-  "required": ["x-delta-evidence", "extensions"]
+  "required": ["x-delta-eid", "extensions"]
 }

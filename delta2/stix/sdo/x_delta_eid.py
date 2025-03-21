@@ -8,21 +8,21 @@ from delta2.stix.common import (delta_namespace, delta_identity, schema_base)
 
 
 # x-delta-evidence custom stix 2.1 SDO
-_type = 'x-delta-evidence'
+_type = 'x-delta-eid'
 
 
-# extension-definition--9ca6c17f-5682-513e-a5e9-3e6df5f9fd00
-x_delta_evidence_ExtensionDefinitionSMO = ExtensionDefinition(
+# extension-definition--cb878c8d-2c1d-5d9c-a2b3-d3f45dc63f2e
+x_delta_eid_ExtensionDefinitionSMO = ExtensionDefinition(
     id="extension-definition--" + str(uuid.uuid5(delta_namespace, _type)),
     created_by_ref=delta_identity,
     created="2025-01-01T00:00:00.000Z",
     modified="2025-01-01T00:00:00.000Z",
-    name="x-evidence",
+    name="x-delta-eid",
     description="""
-    This extension creates a custom stix 2.1 SDO that is used to represent x-delta-evidence objects.
-    One to many object that sits between Indicators & Observables and x-delta-pid objects.
+    This extension creates a custom stix 2.1 SDO that is used to represent x-delta-eid objects.
+    The delta-eid stands for Delta Evidence ID and follows format of "shortname-pid0000".
     """,
-    schema=schema_base+"sdo/x-delta-evidence.json",
+    schema=schema_base+"sdo/x-delta-eid.json",
     version="1.0",
     extension_types=["new-sdo"]
 )
@@ -39,8 +39,9 @@ x_delta_evidence_ExtensionDefinitionSMO = ExtensionDefinition(
     ('external_references', ListProperty(v21.ExternalReference)),
     ('name', StringProperty()),
     ('x_delta_eid', StringProperty(required=True)),
-    ('x_evidence_info', ListProperty(DictionaryProperty())),
-], extension_name=x_delta_evidence_ExtensionDefinitionSMO.id)
-class XDeltaEvidence(object):
+    ('x_eid_obj', ListProperty(DictionaryProperty())),
+    ('x_eid_ns_obj', ListProperty(DictionaryProperty())),
+], extension_name=x_delta_eid_ExtensionDefinitionSMO.id)
+class XDeltaEid(object):
     pass
 
