@@ -19,13 +19,14 @@ default_timestamp = "2018-01-01T00:00:00.000Z"
 
 
 # Delta Objects Strings
-x_delta_data = 'x-delta-data--'
+x_delta_did = 'x-delta-did--'
 x_delta_pid = 'x-delta-pid--'
-x_delta_evidence = 'x-delta-evidence--'
+x_delta_eid = 'x-delta-eid--'
+x_delta_tid = 'x-delta-tid--'
 
-# x-delta-tier template
+# x-delta-tid template
 # tier0-threat000-detect000-alert000
-delta_con_calibration_template = [
+delta_tid_calibration_template = [
     {
         "tier": 0,
         "threat_presence": 0,
@@ -34,8 +35,8 @@ delta_con_calibration_template = [
         "detect_resource_utilization": 0,
         "detect_maintenance": 0,
         "detect_bypass": 0,
+        "alert_regression": 0,
         "alert_projection": 0,
-        "alert_urgency": 0,
-        "alert_triage_effort": 0
+        "alert_investigation_effort": 0
     }
 ]

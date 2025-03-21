@@ -43,6 +43,6 @@ x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     ('x_did_reqs', DictionaryProperty()),
     ('x_did_ns_obj', DictionaryProperty())
 ], extension_name=x_delta_data_ExtensionDefinitionSMO.id)
-class XDeltaData(object):
+class XDeltaDid(object):
     pass
 
