@@ -20,7 +20,7 @@ x_delta_pid_ExtensionDefinitionSMO = ExtensionDefinition(
     name="x-delta-pid",
     description="""
     This extension creates a custom stix 2.1 SDO used to represent x-delta-pid objects.
-    The delta-pid stands for Delta Pattern ID and follows format of [shortname-p0000].
+    The delta-pid stands for Delta Pattern ID and follows format of [shortname-pid0000].
     """,
     schema=schema_base+"sdo/x-delta-pid.json",
     version="1.0",
@@ -44,7 +44,7 @@ x_delta_pid_ExtensionDefinitionSMO = ExtensionDefinition(
     ('modified', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
     ('x_delta_pid', StringProperty(required=True)),
     ('x_delta_category', StringProperty()),
-    ('x_delta_info', DictionaryProperty())
+    ('x_delta_ns_obj', DictionaryProperty())
 ], extension_name=x_delta_pid_ExtensionDefinitionSMO.id)
 class XDeltaPid(object):
     pass

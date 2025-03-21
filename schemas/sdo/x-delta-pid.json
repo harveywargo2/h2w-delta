@@ -49,7 +49,7 @@
             "category_match_filter_forward"
           ]
         },
-        "x_delta_info": {
+        "x_delta_ns_obj": {
           "type": "object",
           "description": "Dictionary of key/value pairs"
         },
