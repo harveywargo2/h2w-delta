@@ -2,9 +2,9 @@ import uuid
 from stix2 import (CustomObject, utils, v21, ExtensionDefinition)
 from stix2.properties import (
     ListProperty, TypeProperty, IDProperty, DictionaryProperty, StringProperty, ReferenceProperty,
-    TimestampProperty, BooleanProperty
+    TimestampProperty
 )
-from delta2.stix.common import (delta_namespace, delta_identity, schema_base)
+from delta2.common import (delta_namespace, delta_identity, schema_base)
 
 
 # x-delta-pid custom stix 2.1 SDO
