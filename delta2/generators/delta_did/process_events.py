@@ -1,9 +1,10 @@
+from delta2.common import (x_delta_did, delta_namespace, delta_identity)
 import delta2.stix as d2s
 import uuid
 
 
 process_create__windows_any = d2s.XDeltaDid(
-    id=d2s.x_delta_did + str(uuid.uuid5(d2s.delta_namespace, "process_create--windows_any")),
+    id=x_delta_did + str(uuid.uuid5(delta_namespace, "process_create--windows_any")),
     created="2020-01-01T00:00:00.000Z",
     modified="2020-01-01T00:00:00.000Z",
     name="Process Creation Event From Any Windows OS",
