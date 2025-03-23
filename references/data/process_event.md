@@ -9,4 +9,4 @@
 - Process Access 
   - https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-access.md
 - MSFT Defender Endpoint - DeviceProcessEvents
-  - https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceprocessevents-table)
+  - https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceprocessevents-table
