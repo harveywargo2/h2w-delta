@@ -1,8 +1,12 @@
-# Process Create
+# Process Events
 
 ## Reference Links
-- [Sysmon Community Guide - Process Events](https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-events.md)
-- [Sysmon Community Guide - Process Create](https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-creation.md)
-- [Sysmon Community Guide - Process Access](https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-access.md)
-- [Ultimate IT Sec - Process Create](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90001)
-- [MSFT Defender Endpoint - DPE](https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceprocessevents-table)
+- General Windows Process
+  - https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-events.md
+- Process Create Docs
+  - https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-creation.md
+  - https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventid=90001
+- Process Access 
+  - https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-access.md
+- MSFT Defender Endpoint - DeviceProcessEvents
+  - https://learn.microsoft.com/en-us/defender-xdr/advanced-hunting-deviceprocessevents-table)
