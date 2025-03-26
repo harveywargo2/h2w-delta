@@ -1,10 +1,13 @@
 # Powerview
 
 ## Ref Links
-- [github - powerview.ps1](https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1)
-- [Docs - Powerview](https://powersploit.readthedocs.io/en/latest/Recon/)
-- [Red Team Notes - Ad Enum with PowerVie](https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/active-directory-enumeration-with-powerview)
-- [HackTricks - PowerView/SharpView](https://book.hacktricks.wiki/en/windows-hardening/basic-powershell-for-pentesters/powerview.html)
+- Tool Location
+  - https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+- Documentation
+  - https://powersploit.readthedocs.io/en/latest/Recon/
+- Examples
+  - https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/active-directory-enumeration-with-powerview
+  - https://book.hacktricks.wiki/en/windows-hardening/basic-powershell-for-pentesters/powerview.html
 
 
 PowerView CMDLET Alias
