@@ -1,22 +1,5 @@
 
 
-def lsass_p0001(kql_ago='1d'):
-
-    query_text = f"""DeviceProcessEvents
-        | where Timestamp >= ago({str(kql_ago)})
-        | where ProcessCommandLine has_all ('Get', 'Process' , 'lsass')
-            and ProcessCommandLine contains 'Get-Process'
-        """
-    query_json = {
-        "delta": ["lsass-p0001--process_create-windows_any"],
-        "title": "Powershell Get-Process LSASS Command",
-        "mitre_technique": "t1003",
-        "mitre_sub_technique": "t1003.001",
-        "query": query_text
-        }
-
-    return query_json
-
 
 def lsass_p0002(kql_ago='1d'):
 

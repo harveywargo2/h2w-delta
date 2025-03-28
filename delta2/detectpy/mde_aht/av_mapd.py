@@ -1,6 +1,6 @@
 
 
-def msftav_p0001(kql_ago='1d'):
+def mdeav_rundlllolbin(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -28,7 +28,7 @@ def msftav_p0001(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0002(kql_ago='1d'):
+def mdeav_adfind(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -56,7 +56,7 @@ def msftav_p0002(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0003(kql_ago='1d'):
+def mdeav_gsecdump(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -84,7 +84,7 @@ def msftav_p0003(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0004(kql_ago='1d'):
+def mdeav_presenoker(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -112,7 +112,7 @@ def msftav_p0004(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0005(kql_ago='1d'):
+def mdeav_atpminidump(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -140,7 +140,7 @@ def msftav_p0005(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0006(kql_ago='1d'):
+def mdeav_dumplass(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -168,7 +168,7 @@ def msftav_p0006(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0007(kql_ago='1d'):
+def mdeav_poderscan(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -196,7 +196,7 @@ def msftav_p0007(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0008(kql_ago='1d'):
+def mdeav_registryexfil(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -224,7 +224,7 @@ def msftav_p0008(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0009(kql_ago='1d'):
+def mdeav_mimikatz(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -252,7 +252,7 @@ def msftav_p0009(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0010(kql_ago='1d'):
+def mdeav_powersploit(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -280,7 +280,7 @@ def msftav_p0010(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0011(kql_ago='1d'):
+def mdeav_nanodump(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -308,7 +308,7 @@ def msftav_p0011(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0012(kql_ago='1d'):
+def mdeav_maleficams(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
@@ -336,7 +336,7 @@ def msftav_p0012(kql_ago='1d'):
     return query_json
 
 
-def msftav_p0013(kql_ago='1d'):
+def mdeav_lsassdump(kql_ago='1d'):
 
     query_text = f"""
         let AvAlertEvidence = materialize(
