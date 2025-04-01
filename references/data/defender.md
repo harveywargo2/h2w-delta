@@ -6,3 +6,5 @@
   - https://learn.microsoft.com/en-us/microsoft-365/security/defender/criteria?view=o365-worldwide
 - Threat Actor Naming 
   - https://learn.microsoft.com/en-us/microsoft-365/security/defender/microsoft-threat-actor-naming?view=o365-worldwide
+- MDE Internals
+  - https://www.first.org/resources/papers/conf2022/MDEInternals-FIRST.pdf
