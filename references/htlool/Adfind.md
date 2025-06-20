@@ -31,8 +31,16 @@ Intel Reports
 - https://github.com/DISREL/Conti-Leaked-Playbook-TTPs/blob/main/Conti-Leaked-Playbook-TTPs.pdf
 - https://thedfirreport.com/2024/08/26/blacksuit-ransomware/
 
+
 Mitre Attack
 - https://attack.mitre.org/software/S0552/
+
+
+Emulation
+- https://www.atomicredteam.io/atomic-red-team/atomics/T1482
+- https://www.atomicredteam.io/atomic-red-team/atomics/T1087.002
+- https://www.atomicredteam.io/atomic-red-team/atomics/T1016
+
 
 Tool Usage
 - https://www.joeware.net/freetools/tools/adfind/usage.htm

@@ -1,13 +1,29 @@
 # Powerview
 
-## Ref Links
-- Tool Location
-  - https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
-- Documentation
-  - https://powersploit.readthedocs.io/en/latest/Recon/
-- Examples
-  - https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/active-directory-enumeration-with-powerview
-  - https://book.hacktricks.wiki/en/windows-hardening/basic-powershell-for-pentesters/powerview.html
+## Description
+PowerSploit is an open source, offensive security framework comprised of PowerShell modules and scripts that perform a wide range of tasks related to penetration testing such as code execution, persistence, bypassing anti-virus, recon, and exfiltration.
+
+PowerView is a PowerShell tool to gain network situational awareness on Windows domains. It contains a set of pure-PowerShell replacements for various windows "net *" commands, which utilize PowerShell AD hooks and underlying Win32 API functions to perform useful Windows domain functionality.
+
+
+
+## References
+Tool Location
+- https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+- https://github.com/PowerShellMafia/PowerSploit
+
+Documentation
+- https://powersploit.readthedocs.io/en/latest/Recon/
+
+Mitre Attack
+- https://attack.mitre.org/software/S0194/
+
+Emulation
+- https://www.atomicredteam.io/atomic-red-team/atomics/T1069.002#atomic-tests
+
+Intel Reports
+- https://www.ired.team/offensive-security-experiments/active-directory-kerberos-abuse/active-directory-enumeration-with-powerview
+- https://book.hacktricks.wiki/en/windows-hardening/basic-powershell-for-pentesters/powerview.html
 
 
 PowerView CMDLET Alias
