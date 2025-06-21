@@ -40,15 +40,6 @@
           "description": "The identifier of the x-delta-pid",
           "pattern": "^[a-z_]{,24}-pid[0-9]{4}"
         },
-        "x_pid_category": {
-          "type": "string",
-          "description": "The type of this object",
-          "enum": [
-            "single_event_pattern_match",
-            "aggregated_event_threshold_exceeded",
-            "category_match_filter_forward"
-          ]
-        },
         "x_pid_ns_obj": {
           "type": "object",
           "description": "Dictionary of key/value pairs"

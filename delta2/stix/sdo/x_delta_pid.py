@@ -43,7 +43,6 @@ x_delta_pid_ExtensionDefinitionSMO = ExtensionDefinition(
     ('created', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
     ('modified', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
     ('x_delta_pid', StringProperty(required=True)),
-    ('x_pid_category', StringProperty()),
     ('x_pid_ns_obj', DictionaryProperty())
 ], extension_name=x_delta_pid_ExtensionDefinitionSMO.id)
 class XDeltaPid(object):

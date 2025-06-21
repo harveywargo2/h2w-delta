@@ -6,10 +6,10 @@ import pandas as pd
 import stix2
 
 
-lib_p = os.path.join(base_path, 'lib_p')
+lib_p = os.path.join(base_path, 'lib_patterns')
 
 # delta_pid excel sheets
-winlol = os.path.join(lib_p, 'dpid_winlol.xlsx')
+winlol = os.path.join(lib_p, 'pid-lolwin.xlsx')
 
 
 def dpid_winlol():
@@ -28,13 +28,12 @@ def dpid_winlol():
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
             x_delta_pid=df1.loc[index, 'delta_pid'],
-            x_pid_category=df1.loc[index, 'delta_category'],
             x_pid_ns_obj={
                 "delta_pattern": df1.loc[index, 'delta_pattern'],
-                "mitre_technique": df1.loc[index, 'mitre_technique'],
-                "mitre_sub_technique": df1.loc[index, 'mitre_sub_technique'],
+                "mitre_technique": df1.loc[index, 'atk_tech'],
+                "mitre_sub_technique": df1.loc[index, 'atk_subtech'],
                 "delta_did": df1.loc[index, 'delta_did'],
-                "delta_duc": df1.loc[index, 'delta_duc'],
+                "pid_type": df1.loc[index, 'dpid_type'],
             }
         )
         stix_list.append(x)
