@@ -14,5 +14,5 @@ Command Modules & Cheat Sheets
 - https://adsecurity.org/?page_id=1821
 - https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/mimikatz-cheatsheet/#mini-dump
 
-- Intel Reports
-  - https://book.hacktricks.xyz/windows-hardening/stealing-credentials/credentials-mimikatz
+Intel Reports
+- https://book.hacktricks.xyz/windows-hardening/stealing-credentials/credentials-mimikatz
