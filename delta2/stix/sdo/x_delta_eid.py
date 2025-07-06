@@ -37,11 +37,11 @@ x_delta_eid_ExtensionDefinitionSMO = ExtensionDefinition(
     ('modified', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
     ('object_marking_refs', ListProperty(ReferenceProperty(valid_types='marking-definition', spec_version='2.1'))),
     ('external_references', ListProperty(v21.ExternalReference)),
-    ('name', StringProperty()),
-    ('x_delta_eid', StringProperty(required=True)),
-    ('x_eid_obj', ListProperty(DictionaryProperty())),
-    ('x_eid_ns_obj', ListProperty(DictionaryProperty())),
+    ('description', StringProperty()),
+    ('x_delta_evidence_id', StringProperty(required=True)),
+    ('x_evidence_obj', DictionaryProperty()),
+    ('x_evidence_meta', DictionaryProperty()),
 ], extension_name=x_delta_eid_ExtensionDefinitionSMO.id)
-class XDeltaEid(object):
+class XDeltaEvidenceId(object):
     pass
 

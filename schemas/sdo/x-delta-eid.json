@@ -23,14 +23,18 @@
           "type": "string",
           "description": "The name used to identify the object."
         },
-        "x_delta_eid": {
+        "x_delta_evidence_id": {
           "type": "string",
           "description": "The fingerprint of the x-delta-eid",
           "pattern": "^[a-z_]{,24}-eid[0-9]{4}"
         },
-        "x_evidence_info": {
+        "x_evidence_obj": {
           "type": "object",
           "description": "Dictionary of key/value pairs"
+        },
+        "x_evidence_meta": {
+          "type": "object",
+          "description": "Non Standard Dictionary of key/value pairs"
         },
         "extensions": {
           "type": "object",
