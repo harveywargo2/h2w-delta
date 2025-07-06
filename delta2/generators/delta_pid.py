@@ -17,7 +17,7 @@ pview = os.path.join(lib_p, 'pid-powerview_powersploit.xlsx')
 
 def pid_xls2stx_winlol():
     stix_list = []
-    df1 = pd.read_excel(winlol)
+    df1 = pd.read_excel(winlol, sheet_name='lolwin')
     df1['parse_json'] = df1['dpid_type'].apply(json.loads)
     df1['pid_case'] = df1['parse_json'].apply(lambda x: x.get('case', 'N/A'))
     df1['pid_type'] = df1['parse_json'].apply(lambda x: x.get('type', 'N/A'))
@@ -51,7 +51,7 @@ def pid_xls2stx_winlol():
 
 def pid_xls2stx_htool():
     stix_list = []
-    df1 = pd.read_excel(winlol)
+    df1 = pd.read_excel(winlol, sheet_name='htool')
     df1['parse_json'] = df1['dpid_type'].apply(json.loads)
     df1['pid_case'] = df1['parse_json'].apply(lambda x: x.get('case', 'N/A'))
     df1['pid_type'] = df1['parse_json'].apply(lambda x: x.get('type', 'N/A'))
@@ -85,7 +85,7 @@ def pid_xls2stx_htool():
 
 def pid_xls2stx_pview():
     stix_list = []
-    df1 = pd.read_excel(pview)
+    df1 = pd.read_excel(pview, sheet_name='pview_psloit')
     df1['parse_json'] = df1['dpid_type'].apply(json.loads)
     df1['pid_case'] = df1['parse_json'].apply(lambda x: x.get('case', 'N/A'))
     df1['pid_type'] = df1['parse_json'].apply(lambda x: x.get('type', 'N/A'))
