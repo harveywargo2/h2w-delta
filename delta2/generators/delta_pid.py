@@ -1,6 +1,3 @@
-import numpy as np
-from pandas.core.interchange import column
-
 from delta2.common import (base_path, delta_namespace, delta_identity, default_timestamp, x_delta_pid)
 from delta2.stix import XDeltaPid
 import os
@@ -8,6 +5,7 @@ import uuid
 import pandas as pd
 import stix2
 import json
+import numpy as np
 
 
 lib_p = os.path.join(base_path, 'lib_patterns')
