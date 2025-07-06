@@ -1,3 +1,6 @@
+import numpy as np
+from pandas.core.interchange import column
+
 from delta2.common import (base_path, delta_namespace, delta_identity, default_timestamp, x_delta_pid)
 from delta2.stix import XDeltaPid
 import os
@@ -15,9 +18,12 @@ htool = os.path.join(lib_p, 'pid-htool.xlsx')
 pview = os.path.join(lib_p, 'pid-powerview_powersploit.xlsx')
 
 
-def pid_xls2stx_winlol():
+def xls2stx_winlol():
     stix_list = []
     df1 = pd.read_excel(winlol, sheet_name='lolwin')
+    df1 = df1.replace({np.nan: None})
+
+
     df1['parse_json'] = df1['dpid_type'].apply(json.loads)
     df1['pid_case'] = df1['parse_json'].apply(lambda x: x.get('case', 'N/A'))
     df1['pid_type'] = df1['parse_json'].apply(lambda x: x.get('type', 'N/A'))
@@ -49,9 +55,12 @@ def pid_xls2stx_winlol():
     return stix_list
 
 
-def pid_xls2stx_htool():
+def xls2stx_htool():
     stix_list = []
-    df1 = pd.read_excel(winlol, sheet_name='htool')
+    df1 = pd.read_excel(htool, sheet_name='htool')
+    df1 = df1.replace({np.nan: None})
+
+
     df1['parse_json'] = df1['dpid_type'].apply(json.loads)
     df1['pid_case'] = df1['parse_json'].apply(lambda x: x.get('case', 'N/A'))
     df1['pid_type'] = df1['parse_json'].apply(lambda x: x.get('type', 'N/A'))
@@ -83,9 +92,12 @@ def pid_xls2stx_htool():
     return stix_list
 
 
-def pid_xls2stx_pview():
+def xls2stx_pview():
     stix_list = []
-    df1 = pd.read_excel(pview, sheet_name='pview_psloit')
+    df1 = pd.read_excel(pview, sheet_name='pview_psploit')
+    df1 = df1.replace({np.nan: None})
+
+
     df1['parse_json'] = df1['dpid_type'].apply(json.loads)
     df1['pid_case'] = df1['parse_json'].apply(lambda x: x.get('case', 'N/A'))
     df1['pid_type'] = df1['parse_json'].apply(lambda x: x.get('type', 'N/A'))
@@ -115,3 +127,4 @@ def pid_xls2stx_pview():
 
 
     return stix_list
+
