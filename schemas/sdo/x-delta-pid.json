@@ -35,12 +35,15 @@
           "$ref": "../common/timestamp.json",
           "description": "The time at which this indicator should no longer be considered valuable intelligence."
         },
-        "x_delta_pid": {
+        "x_delta_pattern_id": {
           "type": "string",
           "description": "The identifier of the x-delta-pid",
           "pattern": "^[a-z_]{,24}-pid[0-9]{4}"
         },
-        "x_pid_ns_obj": {
+        "x_pattern": {
+          "type": "string"
+        },
+        "x_pattern_meta": {
           "type": "object",
           "description": "Dictionary of key/value pairs"
         },

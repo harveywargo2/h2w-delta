@@ -1,5 +1,5 @@
 from delta2.common import (base_path, delta_namespace, delta_identity, default_timestamp, x_delta_pid)
-from delta2.stix import XDeltaPid
+from delta2.stix import XDeltaPatternId
 import os
 import uuid
 import pandas as pd
@@ -28,7 +28,7 @@ def xls2stx_winlol():
 
     for index, row in df1.iterrows():
 
-        x = XDeltaPid(
+        x = XDeltaPatternId(
             id=x_delta_pid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_pid']))),
             created_by_ref=delta_identity,
             created=default_timestamp,
@@ -37,9 +37,9 @@ def xls2stx_winlol():
             description=df1.loc[index, 'description'],
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
-            x_delta_pid=df1.loc[index, 'delta_pid'],
-            x_pid_ns_obj={
-                "delta_pattern": df1.loc[index, 'delta_pattern'],
+            x_delta_pattern_id=df1.loc[index, 'delta_pid'],
+            x_pattern=df1.loc[index, 'delta_pattern'],
+            x_pattern_meta={
                 "pid_case": df1.loc[index, 'pid_case'],
                 "pid_type": df1.loc[index, 'pid_type'],
                 "mitre_technique": df1.loc[index, 'atk_tech'],
@@ -65,7 +65,7 @@ def xls2stx_htool():
 
     for index, row in df1.iterrows():
 
-        x = XDeltaPid(
+        x = XDeltaPatternId(
             id=x_delta_pid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_pid']))),
             created_by_ref=delta_identity,
             created=default_timestamp,
@@ -74,9 +74,9 @@ def xls2stx_htool():
             description=df1.loc[index, 'description'],
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
-            x_delta_pid=df1.loc[index, 'delta_pid'],
-            x_pid_ns_obj={
-                "delta_pattern": df1.loc[index, 'delta_pattern'],
+            x_delta_pattern_id=df1.loc[index, 'delta_pid'],
+            x_pattern=df1.loc[index, 'delta_pattern'],
+            x_pattern_meta={
                 "pid_case": df1.loc[index, 'pid_case'],
                 "pid_type": df1.loc[index, 'pid_type'],
                 "mitre_technique": df1.loc[index, 'atk_tech'],
@@ -102,7 +102,7 @@ def xls2stx_pview():
 
     for index, row in df1.iterrows():
 
-        x = XDeltaPid(
+        x = XDeltaPatternId(
             id=x_delta_pid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_pid']))),
             created_by_ref=delta_identity,
             created=default_timestamp,
@@ -111,9 +111,9 @@ def xls2stx_pview():
             description=df1.loc[index, 'description'],
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
-            x_delta_pid=df1.loc[index, 'delta_pid'],
-            x_pid_ns_obj={
-                "delta_pattern": df1.loc[index, 'delta_pattern'],
+            x_delta_pattern_id=df1.loc[index, 'delta_pid'],
+            x_pattern=df1.loc[index, 'delta_pattern'],
+            x_pattern_meta={
                 "pid_case": df1.loc[index, 'pid_case'],
                 "pid_type": df1.loc[index, 'pid_type'],
                 "mitre_technique": df1.loc[index, 'atk_tech'],

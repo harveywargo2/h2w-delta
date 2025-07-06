@@ -42,9 +42,10 @@ x_delta_pid_ExtensionDefinitionSMO = ExtensionDefinition(
     ('description', StringProperty()),
     ('created', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
     ('modified', TimestampProperty(default=lambda: utils.NOW, precision='millisecond', precision_constraint='min')),
-    ('x_delta_pid', StringProperty(required=True)),
-    ('x_pid_ns_obj', DictionaryProperty())
+    ('x_delta_pattern_id', StringProperty(required=True)),
+    ('x_pattern', StringProperty(required=True)),
+    ('x_pattern_meta', DictionaryProperty())
 ], extension_name=x_delta_pid_ExtensionDefinitionSMO.id)
-class XDeltaPid(object):
+class XDeltaPatternId(object):
     pass
 
