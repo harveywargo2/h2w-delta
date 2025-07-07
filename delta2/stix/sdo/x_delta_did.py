@@ -19,7 +19,7 @@ x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     name="x-delta-did",
     description="""
     This extension creates a custom stix 2.1 SDO that is used to represent x-delta-did objects.
-    The delta-did stands for Delta Data ID and follows format of "shortname-pid0000".
+    The delta-did stands for Delta Data ID and follows format of "shortname-scope".
     """,
     schema=schema_base+"sdo/x-delta-data.json",
     version="1.0",
@@ -39,10 +39,10 @@ x_delta_data_ExtensionDefinitionSMO = ExtensionDefinition(
     ('object_marking_refs', ListProperty(ReferenceProperty(valid_types='marking-definition', spec_version='2.1'))),
     ('name', StringProperty()),
     ('description', StringProperty()),
-    ('x_delta_did', StringProperty(required=True)),
-    ('x_did_reqs', DictionaryProperty()),
-    ('x_did_ns_obj', DictionaryProperty())
+    ('x_delta_data_id', StringProperty(required=True)),
+    ('x_data_reqs', DictionaryProperty()),
+    ('x_data_meta', DictionaryProperty())
 ], extension_name=x_delta_data_ExtensionDefinitionSMO.id)
-class XDeltaDid(object):
+class XDeltaDataId(object):
     pass
 

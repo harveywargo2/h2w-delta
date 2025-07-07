@@ -16,7 +16,7 @@ schema_base = "https://raw.githubusercontent.com/harveywargo2/h2w-delta/refs/hea
 
 
 # Common Variables
-default_timestamp = "2018-01-01T00:00:00.000Z"
+default_timestamp = "2025-01-01T00:00:00.000Z"
 
 
 # Delta Objects Strings
