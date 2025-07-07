@@ -3,36 +3,48 @@ import delta2.stix as d2s
 import uuid
 
 
-file_create__windows_any = d2s.XDeltaDid(
-    id=x_delta_did + str(uuid.uuid5(delta_namespace, "file_create-windows_any")),
-    created="2020-01-01T00:00:00.000Z",
-    modified="2020-01-01T00:00:00.000Z",
-    name="File Creation Event From Any Windows OS",
-    x_delta_did="file_create--windows_any",
-    x_did_reqs={
-        "file_name": "File name of file created",
+_fc_any = "file_create-any"
+_fe_mde_any = "file_event-any"
+
+file_create__any = d2s.XDeltaDataId(
+    id=x_delta_did + str(uuid.uuid5(delta_namespace, _fc_any)),
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
+    name="File Creation Event From Any OS",
+    description="File creation event from any OS collected by any method.",
+    x_delta_data_id=_fc_any,
+    x_data_reqs={
         "file_path": "Folder path of file created",
-        "initiating_process_file_name": "Initiating process file name that created the file"
+        "initiating_file_path": "Folder path of the file that created the file"
     },
-    x_did_ns_obj={
-        "collection_methods": ["sysmon", "mde via msft agent"]
+    x_data_meta={
+        "collection_methods": ["sysmon", "mde", "edr"],
+        "operating_system": ["linux", "windows", "macos"]
     }
 )
 
 
-file_create_mde__windows_any = d2s.XDeltaDid(
-    id=x_delta_did + str(uuid.uuid5(delta_namespace, "file_create_mde-windows_any")),
-    created="2020-01-01T00:00:00.000Z",
-    modified="2020-01-01T00:00:00.000Z",
+file_event_mde__any = d2s.XDeltaDataId(
+    id=x_delta_did + str(uuid.uuid5(delta_namespace, _fe_mde_any)),
+    created="2025-01-01T00:00:00.000Z",
+    modified="2025-01-01T00:00:00.000Z",
     name="MDE File Creation Event From Any Windows OS",
-    x_delta_did="file_create_mde-windows_any",
-    x_did_reqs={
+    description="File event from any OS collected by MSFT Defender Endpoint.",
+    x_delta_data_id=_fe_mde_any,
+    x_data_reqs={
+        "file_action": "Type of file event recorded like FileCreated, FileRenamed, FileModified, FileDeleted",
         "file_name": "File name of file created",
         "file_path": "Folder path of file created",
-        "initiating_process_file_name": "Process file name that created the file",
-        "initiating_process_command_line": "Command line that created the file",
+        "sha256": "Sha256 of file",
+        "md5": "MD5 of file",
+        "sha1": "Sha1 of file",
+        "initiating_process_file_name": "File name that created the file",
+        "initiating_file_path": "Folder path of the file that created the file",
+        "initiating_process_cmdline": "Command line that created the file",
+        "initiating_process_account": "Account that created the file",
     },
-    x_did_ns_obj={
-        "collection_methods": ["mde via msft agent"]
+    x_data_meta={
+        "collection_methods": ["mde"],
+        "operating_system": ["linux", "windows", "macos"]
     }
 )

@@ -6,3 +6,5 @@ from delta2.generators.delta_did.process_create import (process_create__any, pro
                                                         process_create__linux_any, process_create__mac_any,
                                                         process_create_mde__any)
 
+from delta2.generators.delta_did.file_events import (file_create__any, file_event_mde__any)
+
