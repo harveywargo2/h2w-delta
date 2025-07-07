@@ -20,7 +20,7 @@ x_delta_eid_ExtensionDefinitionSMO = ExtensionDefinition(
     name="x-delta-eid",
     description="""
     This extension creates a custom stix 2.1 SDO that is used to represent x-delta-eid objects.
-    The delta-eid stands for Delta Evidence ID and follows format of "shortname-pid0000".
+    The delta-eid stands for Delta Evidence ID and follows format of "shortname-eid0000".
     """,
     schema=schema_base+"sdo/x-delta-eid.json",
     version="1.0",

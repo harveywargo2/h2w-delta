@@ -39,14 +39,14 @@ def xls2stx_ransom_process_create():
     for index, row in df1.iterrows():
 
         x = XDeltaEvidenceId(
-            id=x_delta_eid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_eid'] + '--process_create'))),
+            id=x_delta_eid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_eid'] + '--process_create-any'))),
             created_by_ref=delta_identity,
             created=default_timestamp,
             modified=default_timestamp,
             description=df1.loc[index, 'description'],
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
-            x_delta_evidence_id=df1.loc[index, 'delta_eid'] + '--process_create',
+            x_delta_evidence_id=df1.loc[index, 'delta_eid'] + '--process_create-any',
             x_evidence_obj={
                 "process_cmdline": df1.loc[index, 'process_cmdline'],
                 "initiating_process_cmdline": df1.loc[index, 'initiating_process_cmdline'],
@@ -97,14 +97,14 @@ def xls2stx_ransom_process_access():
     for index, row in df1.iterrows():
 
         x = XDeltaEvidenceId(
-            id=x_delta_eid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_eid'] + '--process_access'))),
+            id=x_delta_eid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_eid'] + '--process_access-windows_any'))),
             created_by_ref=delta_identity,
             created=default_timestamp,
             modified=default_timestamp,
             description=df1.loc[index, 'description'],
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
-            x_delta_evidence_id=df1.loc[index, 'delta_eid'] + '--process_access',
+            x_delta_evidence_id=df1.loc[index, 'delta_eid'] + '--process_access-windows_any',
             x_evidence_obj={
                 "src_process": df1.loc[index, 'src_process'],
                 "src_process_path": df1.loc[index, 'src_process_path'],
@@ -153,14 +153,14 @@ def xls2stx_ransom_file():
     for index, row in df1.iterrows():
 
         x = XDeltaEvidenceId(
-            id=x_delta_eid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_eid'] + '--process_access'))),
+            id=x_delta_eid + str(uuid.uuid5(delta_namespace, str(df1.loc[index, 'delta_eid'] + '--file_event-any'))),
             created_by_ref=delta_identity,
             created=default_timestamp,
             modified=default_timestamp,
             description=df1.loc[index, 'description'],
             object_marking_refs=[stix2.TLP_WHITE],
             labels=[],
-            x_delta_evidence_id=df1.loc[index, 'delta_eid'] + '--file_event',
+            x_delta_evidence_id=df1.loc[index, 'delta_eid'] + '--file_event-any',
             x_evidence_obj={
                 "file_action": df1.loc[index, 'file_action'],
                 "file_path": df1.loc[index, 'file_path'],
