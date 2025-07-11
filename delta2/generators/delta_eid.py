@@ -167,7 +167,8 @@ def xls2stx_ransom_file():
                 "file_name": df1.loc[index, 'file_name'],
                 "initiating_file_path": df1.loc[index, 'initiating_file_path'],
                 "initiating_file_name": df1.loc[index, 'initiating_file_name'],
-                "initiating_process_cmdline": df1.loc[index, 'initiating_process_cmdline']
+                "initiating_process_cmdline": df1.loc[index, 'initiating_process_cmdline'],
+                "object": df1.loc[index, 'object']
             },
             x_evidence_meta={
                 "evidence_type": "Reported",
