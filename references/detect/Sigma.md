@@ -18,6 +18,8 @@ Guides
 Converters
 - https://sigconverter.io/
 
+Search Engine
+- https://sigmasearchengine.com/
 
 ## Rule Structure
 
