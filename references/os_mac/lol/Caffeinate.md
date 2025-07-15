@@ -36,7 +36,10 @@ Example
 - https://osxdaily.com/2014/06/16/caffeinate-prevent-sleep-while-command-active-mac-os-x/
 - https://macperformanceguide.com/blog/2021/20210927_1306-macOS-caffeinate-git-push.html
 
-Notable
+Mitre Attack
+- https://attack.mitre.org/techniques/T1653/
+
+## Notable
 
 To prevent a Mac from sleeping while running a script, use the caffeinate command with the -i flag to inhibit idle sleep and the -w flag to wait for the script to finish. 
 For example: 
