@@ -52,6 +52,7 @@ E.g. wrap your work in a shell script mywork.sh and:
 caffeinate -disu mywork.sh
 ```
 
+Fork/Pin to Process
 ```
 caffeinate -i [command / process]
 caffeinate -i ssh coffeebeans &
