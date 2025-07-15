@@ -34,7 +34,7 @@ Example
 - https://stackoverflow.com/questions/48041791/using-caffeinate-command-in-macos
 - https://superuser.com/questions/770151/how-do-i-use-caffeinate-to-prevent-my-computer-from-sleeping-while-a-script-runs
 - https://osxdaily.com/2014/06/16/caffeinate-prevent-sleep-while-command-active-mac-os-x/
-
+- https://macperformanceguide.com/blog/2021/20210927_1306-macOS-caffeinate-git-push.html
 
 Notable
 
@@ -52,3 +52,11 @@ E.g. wrap your work in a shell script mywork.sh and:
 caffeinate -disu mywork.sh
 ```
 
+```
+caffeinate -i [command / process]
+caffeinate -i ssh coffeebeans &
+caffeinate -i make
+caffeinate -i /private/tmp/./whatisthis.sh
+caffeinate -i /Applications/Safari.app/Resources/MacOS/Safari
+caffeinate -d telnet towel.blinkenlights.nl
+```
