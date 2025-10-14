@@ -28,9 +28,9 @@ SIGMA
 - https://detection.fyi/
 
 
-- SPL (SPLUNK)
-  - https://github.com/splunk/security_content
-  - https://research.splunk.com/detections/
+SPL (SPLUNK)
+- https://github.com/splunk/security_content
+- https://research.splunk.com/detections/
 
 
 Yara-L
