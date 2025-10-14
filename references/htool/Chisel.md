@@ -1,3 +1,0 @@
-# Chisel
-
-## References
