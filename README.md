@@ -1,3 +1,3 @@
 # h2w-delta
 
-Detection Evidence Library of Threat Activity
+Detection Engineering Library of Threat Activity

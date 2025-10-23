@@ -18,3 +18,6 @@ Shell Command
 
 Youtube
 - https://www.youtube.com/watch?v=i6tsLWrCiGE&list=PLcjpg2ik7YT6H5l9Jx-1ooRYpfvznAInJ
+
+Configs
+- https://www.elastic.co/security-labs/extracting-cobalt-strike-beacon-configurations
