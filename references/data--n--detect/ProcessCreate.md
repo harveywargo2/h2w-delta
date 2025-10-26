@@ -9,11 +9,6 @@ In Linux the advantage provided by Sysmon is that the data is structured in a wa
 leverage in a SIEM that leverages the logs. Bellow is an auditd example of the "ping -c 8.8.8.8" command.
 
 
-| Delta           | Sysmon EID 1  | MDE DeviceProcessEvents |
-|-----------------|---------------|-------------------------|
-| process_cmdline | CommandLine   | ProcessCommandLine      |
-
-
 ## References
 General Windows Process
 - https://github.com/trustedsec/SysmonCommunityGuide/blob/master/chapters/process-events.md
