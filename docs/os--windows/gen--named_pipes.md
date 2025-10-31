@@ -65,14 +65,14 @@ References to tools to retrieve & do investigation on named pipes
 Sysinternals
 - PipeList
 - PSFile 
-``
+```
 grep named pipes with | findstr pipe
-``
+```
 
 Powershell
-``
+```
 [System.IO.Directory]::GetFiles("\\.\\pipe\\") or Get-ChildItem \\.\pipe\
-``
+```
 
 ### Reference
 - https://github.com/cyberark/PipeViewer
